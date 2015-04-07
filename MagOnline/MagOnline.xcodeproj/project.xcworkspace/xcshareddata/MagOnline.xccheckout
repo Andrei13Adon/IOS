@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>51FCD402-A9B8-4864-9F4D-7F8F27377D7A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MagOnline</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>068D1DE6D7B5D4703244F5491E7A6ABE143626B5</key>
+		<string>https://github.com/Andrei13Adon/IOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MagOnline/MagOnline.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>068D1DE6D7B5D4703244F5491E7A6ABE143626B5</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Andrei13Adon/IOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>068D1DE6D7B5D4703244F5491E7A6ABE143626B5</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>068D1DE6D7B5D4703244F5491E7A6ABE143626B5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>IOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>

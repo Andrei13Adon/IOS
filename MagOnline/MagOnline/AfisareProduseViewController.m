@@ -20,7 +20,7 @@
     self.title = Titlu;
     
     PFQuery *query = [PFQuery queryWithClassName:@"Produse"];
-    NSLog(@"%@",idObject);
+    //NSLog(@"%@",idObject);
     /*
     [query whereKey:@"CategoriiID" equalTo:idObject];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {

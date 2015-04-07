@@ -111,9 +111,14 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    NSLog(@"Am selectat celula de la indexpath %ld %@", (long)indexPath.row, [_transfObjects[indexPath.row] objectForKey:@"Titlu"]);
+ //   NSLog(@"Am selectat celula de la indexpath %ld %@", (long)indexPath.row, [_transfObjects[indexPath.row] objectForKey:@"Titlu"]);
     AfisareProduseViewController *lista;
-    lista = [[AfisareProduseViewController alloc]initWithTitle:[_transfObjects[indexPath.row] objectForKey:@"Titlu"] andObjectId: [_transfObjects[indexPath.row] objectForKey:@"objectId"] ];
+    /*
+    //gasirea id-ului din parse la obiectul pe care apesi
+    NSString *objectId = [[_transfObjects objectAtIndex:indexPath.row] objectId];
+    NSLog(@"%@", objectId);
+    */
+    lista = [[AfisareProduseViewController alloc]initWithTitle:[_transfObjects[indexPath.row] objectForKey:@"Titlu"] andObjectId: [[_transfObjects objectAtIndex:indexPath.row] objectId] ];
     [self.navigationController pushViewController:lista animated:YES];
     
 }
