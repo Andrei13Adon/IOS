@@ -37,7 +37,7 @@
                 _transfObjects = someTxt;
                 if(_Descriere)
                 {
-                    _Descriere.text = _transfObjects[@"Titlu"];
+                    _Descriere.text = _transfObjects[@"Descriere"];
                 }
                 //????
                 //   _transfObjects = [NSMutableArray arrayWithArray:objects];
@@ -49,7 +49,7 @@
                  NSLog(@"%@", object.objectId);
                  NSLog(@"%@" , object[@"Titlu"]);
                  }*/
-                NSLog(@"%@", _transfObjects[@"Titlu"]);
+                //NSLog(@"%@", _transfObjects[@"Titlu"]);
             } else {
                 // Log details of the failure
                 NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -66,7 +66,7 @@
     _Descriere = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     if(_transfObjects)
     {
-        _Descriere.text = _transfObjects[@"Titlu"];
+        _Descriere.text = _transfObjects[@"Descriere"];
     }
     else
     {

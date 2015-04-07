@@ -30,7 +30,8 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Produse"];
     //NSLog(@"%@",idObject);
     
-    [query whereKey:@"CategoriiID" equalTo:_idCategorieTata];
+    [query whereKey:@"CategoriiID" equalTo:_idCategorieTata ];
+    [query whereKey:@"Disponibil" equalTo:@YES];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             //????
