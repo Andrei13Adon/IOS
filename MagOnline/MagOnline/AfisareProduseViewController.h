@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProdusViewController.h"
 
 @interface AfisareProduseViewController : UIViewController
 

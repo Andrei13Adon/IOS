@@ -113,7 +113,7 @@
      NSString *objectId = [[_transfObjects objectAtIndex:indexPath.row] objectId];
      NSLog(@"%@", objectId);
      */
-    lista = [[AfisareProduseViewController alloc]initWithTitle:[_transfObjects[indexPath.row] objectForKey:@"Titlu"] andObjectId: [[_transfObjects objectAtIndex:indexPath.row] objectId] ];
+    lista = [[ProdusViewController alloc] initWithTitle:[_transfObjects[indexPath.row] objectForKey:@"Titlu"] andIdObject:[[_transfObjects objectAtIndex:indexPath.row] objectId]];
     [self.navigationController pushViewController:lista animated:YES];
     
 }

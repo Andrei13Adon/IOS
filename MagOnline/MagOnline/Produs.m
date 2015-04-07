@@ -7,7 +7,18 @@
 //
 
 #import "Produs.h"
+#import <Parse/Parse.h>
+
+@implementation Produs()
+
+@end
 
 @implementation Produs
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+}
 
 @end
