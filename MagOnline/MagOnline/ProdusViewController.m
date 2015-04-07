@@ -75,6 +75,11 @@
     
     [self.view addSubview:_Descriere];
     
+    UIButton *buton1 = [[UIButton alloc] initWithFrame: CGRectMake(20, 30, 150, 50)];
+    /*buton1.backgroundColor = [UIColor grayColor];
+     [self.view addSubview: buton1];
+     [buton1 addTarget:self action:@selector(click) forControlEvents: UIControlEventTouchUpInside];*/
+    
 }
 
 @end
