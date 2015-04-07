@@ -7,8 +7,14 @@
 //
 
 #import "ProdusViewController.h"
-
+#import <Parse/Parse.h>
 @interface ProdusViewController ()
+
+@property (nonatomic , strong)PFObject *transfObjects;
+
+@property (nonatomic , assign)NSString *idObiectCurent;
+
+@property (strong , nonatomic)UILabel *Descriere;
 
 @end
 
@@ -17,13 +23,58 @@
 -(instancetype)initWithTitle:(NSString *) Titlu andIdObject:(NSString *) idObject{
     self = [super init];
     
-    self.title = Titlu;
+    if(self)
+    {
+        self.title = Titlu;
+        _idObiectCurent = idObject;
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"Produse"];
+        //NSLog(@"%@",idObject);
+        _transfObjects = nil;
+        [query whereKey:@"CategoriiID" equalTo:_idObiectCurent];
+        [query getObjectInBackgroundWithId:_idObiectCurent block:^(PFObject *someTxt, NSError *error) {
+            if (!error) {
+                _transfObjects = someTxt;
+                if(_Descriere)
+                {
+                    _Descriere.text = _transfObjects[@"Titlu"];
+                }
+                //????
+                //   _transfObjects = [NSMutableArray arrayWithArray:objects];
+                //    [_mainTableView reloadData];
+                /* // The find succeeded.
+                 NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
+                 // Do something with the found objects
+                 for (PFObject *object in objects) {
+                 NSLog(@"%@", object.objectId);
+                 NSLog(@"%@" , object[@"Titlu"]);
+                 }*/
+                NSLog(@"%@", _transfObjects[@"Titlu"]);
+            } else {
+                // Log details of the failure
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+        }];
+    }
+    
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    _Descriere = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    if(_transfObjects)
+    {
+        _Descriere.text = _transfObjects[@"Titlu"];
+    }
+    else
+    {
+        _Descriere.text =  @"orice text";
+    }
+    
+    [self.view addSubview:_Descriere];
+    
 }
 
 @end
