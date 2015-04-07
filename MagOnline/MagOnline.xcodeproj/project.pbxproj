@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8C292AC11ACC4B5A00A6258A /* AfisareProduseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C292AC01ACC4B5A00A6258A /* AfisareProduseViewController.m */; };
+		8C404CAD1AD4350F006BAB0D /* Produs.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C404CAC1AD4350F006BAB0D /* Produs.m */; };
 		8C4BF8A21AB9EBAE009C189F /* AfisareCategorieTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4BF8A11AB9EBAE009C189F /* AfisareCategorieTableViewController.m */; };
 		8C835F381AB88C8C003E5A7C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C835F371AB88C8C003E5A7C /* main.m */; };
 		8C835F3B1AB88C8C003E5A7C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C835F3A1AB88C8C003E5A7C /* AppDelegate.m */; };
@@ -45,6 +46,8 @@
 /* Begin PBXFileReference section */
 		8C292ABF1ACC4B5A00A6258A /* AfisareProduseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AfisareProduseViewController.h; sourceTree = "<group>"; };
 		8C292AC01ACC4B5A00A6258A /* AfisareProduseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AfisareProduseViewController.m; sourceTree = "<group>"; };
+		8C404CAB1AD4350F006BAB0D /* Produs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Produs.h; sourceTree = "<group>"; };
+		8C404CAC1AD4350F006BAB0D /* Produs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Produs.m; sourceTree = "<group>"; };
 		8C4BF8A01AB9EBAE009C189F /* AfisareCategorieTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AfisareCategorieTableViewController.h; sourceTree = "<group>"; };
 		8C4BF8A11AB9EBAE009C189F /* AfisareCategorieTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AfisareCategorieTableViewController.m; sourceTree = "<group>"; };
 		8C835F321AB88C8C003E5A7C /* MagOnline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagOnline.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,8 +117,18 @@
 			children = (
 				8C292ABF1ACC4B5A00A6258A /* AfisareProduseViewController.h */,
 				8C292AC01ACC4B5A00A6258A /* AfisareProduseViewController.m */,
+				8C404CAA1AD4342E006BAB0D /* Produs */,
 			);
 			name = AfisareProduse;
+			sourceTree = "<group>";
+		};
+		8C404CAA1AD4342E006BAB0D /* Produs */ = {
+			isa = PBXGroup;
+			children = (
+				8C404CAB1AD4350F006BAB0D /* Produs.h */,
+				8C404CAC1AD4350F006BAB0D /* Produs.m */,
+			);
+			name = Produs;
 			sourceTree = "<group>";
 		};
 		8C4BF89F1AB9EB3A009C189F /* AfisareCategorii */ = {
@@ -327,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C404CAD1AD4350F006BAB0D /* Produs.m in Sources */,
 				8C8519191ACAF95500E33592 /* SubCategorii.m in Sources */,
 				8C835F5E1AB8951B003E5A7C /* AnuntViewController.m in Sources */,
 				8C835F611AB89761003E5A7C /* AdaugViewController.m in Sources */,
