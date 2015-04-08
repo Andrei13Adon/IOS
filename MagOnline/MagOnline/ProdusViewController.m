@@ -30,7 +30,6 @@
         PFQuery *query = [PFQuery queryWithClassName:@"Produse"];
         //NSLog(@"%@",idObject);
         _transfObjects = nil;
-        [query whereKey:@"CategoriiID" equalTo:_idObiectCurent];
         [query getObjectInBackgroundWithId:_idObiectCurent block:^(PFObject *someTxt, NSError *error) {
             if (!error) {
                 _transfObjects = someTxt;
