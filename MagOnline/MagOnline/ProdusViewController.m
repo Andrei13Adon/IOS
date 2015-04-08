@@ -63,7 +63,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    _Descriere = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    _Descriere = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height- 20 - 44 - 49 -50)];
     if(_transfObjects)
     {
         _Descriere.text = _transfObjects[@"Descriere"];
@@ -75,11 +75,23 @@
     
     [self.view addSubview:_Descriere];
     
-    UIButton *buton1 = [[UIButton alloc] initWithFrame: CGRectMake(20, 30, 150, 50)];
-    /*buton1.backgroundColor = [UIColor grayColor];
-     [self.view addSubview: buton1];
-     [buton1 addTarget:self action:@selector(click) forControlEvents: UIControlEventTouchUpInside];*/
+    UIButton *CumparaProdusBut = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50, self.view.frame.size.width, 50)];
+    CumparaProdusBut.backgroundColor = [UIColor blueColor];
+    [CumparaProdusBut setTitle:@"Cumpara Produs"forState:UIControlStateNormal];
+     [self.view addSubview: CumparaProdusBut];
+     [CumparaProdusBut addTarget:self action:@selector(click) forControlEvents: UIControlEventTouchUpInside];
     
 }
+
+- (void)click {
+     /*  // self.view.backgroundColor = [UIColor greenColor];
+        if (self.view.backgroundColor == [UIColor redColor])
+            self.view.backgroundColor = [UIColor greenColor];
+        else
+            self.view.backgroundColor = [UIColor redColor]; */
+    [self.navigationController pushViewController:[[AfisareProduseViewController alloc]init] animated:YES];
+    }
+
+
 
 @end

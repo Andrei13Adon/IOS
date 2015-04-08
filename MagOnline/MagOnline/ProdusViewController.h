@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AfisareProduseViewController.h"
 
 @interface ProdusViewController : UIViewController
 
--(instancetype)initWithTitle:(NSString *) Titlu andIdObject:(NSString *) idObjectp;
+-(instancetype)initWithTitle:(NSString *) Titlu andIdObject:(NSString *) idObject;
 
 @end
