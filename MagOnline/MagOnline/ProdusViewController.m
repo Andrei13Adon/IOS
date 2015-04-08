@@ -12,7 +12,7 @@
 
 @property (nonatomic , strong)PFObject *transfObjects;
 
-@property (nonatomic , assign)NSString *idObiectCurent;
+@property (nonatomic , strong)NSString *idObiectCurent;
 
 @property (strong , nonatomic)UILabel *Descriere;
 
@@ -27,7 +27,6 @@
     {
         self.title = Titlu;
         _idObiectCurent = idObject;
-        
         PFQuery *query = [PFQuery queryWithClassName:@"Produse"];
         //NSLog(@"%@",idObject);
         _transfObjects = nil;
@@ -93,7 +92,7 @@
             self.view.backgroundColor = [UIColor greenColor];
         else
             self.view.backgroundColor = [UIColor redColor]; */
-    [self.navigationController pushViewController:[[AfisareProduseViewController alloc]init] animated:YES];
+    [self.navigationController pushViewController:[[CumparaPrloduViewController alloc]initWintTiTle:self.title andProdusID:_idObiectCurent] animated:YES];
     }
 
 

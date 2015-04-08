@@ -31,6 +31,7 @@
 		8C8D3C921ACB062A00A5BD5D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8D3C911ACB062A00A5BD5D /* SystemConfiguration.framework */; };
 		8C8D3C941ACB063500A5BD5D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8D3C931ACB063500A5BD5D /* libz.dylib */; };
 		8C8D3C961ACB064000A5BD5D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8D3C951ACB064000A5BD5D /* libsqlite3.dylib */; };
+		8C9CBE361AD52F55008F288B /* CumparaPrloduViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9CBE351AD52F55008F288B /* CumparaPrloduViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,8 @@
 		8C8D3C911ACB062A00A5BD5D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8C8D3C931ACB063500A5BD5D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		8C8D3C951ACB064000A5BD5D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		8C9CBE341AD52F55008F288B /* CumparaPrloduViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CumparaPrloduViewController.h; sourceTree = "<group>"; };
+		8C9CBE351AD52F55008F288B /* CumparaPrloduViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CumparaPrloduViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +130,7 @@
 			children = (
 				8C404CAE1AD43703006BAB0D /* ProdusViewController.h */,
 				8C404CAF1AD43703006BAB0D /* ProdusViewController.m */,
+				8C9CBE331AD52EE9008F288B /* Cumpara Produs */,
 			);
 			name = Produs;
 			sourceTree = "<group>";
@@ -241,6 +245,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8C9CBE331AD52EE9008F288B /* Cumpara Produs */ = {
+			isa = PBXGroup;
+			children = (
+				8C9CBE341AD52F55008F288B /* CumparaPrloduViewController.h */,
+				8C9CBE351AD52F55008F288B /* CumparaPrloduViewController.m */,
+			);
+			name = "Cumpara Produs";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -340,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C9CBE361AD52F55008F288B /* CumparaPrloduViewController.m in Sources */,
 				8C8519191ACAF95500E33592 /* SubCategorii.m in Sources */,
 				8C835F5E1AB8951B003E5A7C /* AnuntViewController.m in Sources */,
 				8C835F611AB89761003E5A7C /* AdaugViewController.m in Sources */,
