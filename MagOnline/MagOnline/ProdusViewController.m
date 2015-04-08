@@ -38,6 +38,8 @@
                 if(_Descriere)
                 {
                     _Descriere.text = _transfObjects[@"Descriere"];
+                    _Descriere.numberOfLines = 0;
+                    [_Descriere sizeToFit];
                 }
                 //????
                 //   _transfObjects = [NSMutableArray arrayWithArray:objects];
@@ -62,17 +64,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor blackColor];
     _Descriere = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height- 20 - 44 - 49 -50)];
     if(_transfObjects)
     {
         _Descriere.text = _transfObjects[@"Descriere"];
+        _Descriere.numberOfLines = 0;
+        [_Descriere sizeToFit];
     }
     else
     {
         _Descriere.text =  @"!test text!";
     }
-    
+    _Descriere.textColor = [UIColor whiteColor];
     [self.view addSubview:_Descriere];
     
     UIButton *CumparaProdusBut = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50, self.view.frame.size.width, 50)];
