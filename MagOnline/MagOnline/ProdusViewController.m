@@ -70,7 +70,7 @@
     }
     else
     {
-        _Descriere.text =  @"orice text";
+        _Descriere.text =  @"!test text!";
     }
     
     [self.view addSubview:_Descriere];
