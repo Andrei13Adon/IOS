@@ -1,4 +1,4 @@
-//
+// good site: http://www.tutorialspoint.com/ios/ios_audio_video.htm
 //  AppDelegate.h
 //  MagOnline
 //
