@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface ConfirmareMesajViewController : UIViewController
 
 -(instancetype)initWithTitle:(NSString *) Titlu andIdObject:(NSString *) idObject andMessageRezult: (NSString *) rezultatMesaj;
 
 @end
+
+

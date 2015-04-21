@@ -145,7 +145,7 @@
     _transfObjects = nil;
    [query getObjectInBackgroundWithId:_idObiectCurent block:^(PFObject *someTxt, NSError *error) {
         if (!error && [someTxt[@"Disponibil"] isEqual:@YES]) {
-            NSLog(@"%@",someTxt[@"Disponibil"]);
+           // NSLog(@"%@",someTxt[@"Disponibil"]);
     
     // Create a pointer to an object of class
     PFObject *confirmare = [PFObject objectWithoutDataWithClassName:@"Produse" objectId:_idObiectCurent];
@@ -166,7 +166,7 @@
     [self.navigationController pushViewController:[[ConfirmareMesajViewController alloc]initWithTitle:self.title andIdObject:@"ceva"  andMessageRezult:  @"Produsul a fost cumpart cu succes!"] animated:YES];
  
         }else{
-            [self.navigationController pushViewController:[[ConfirmareMesajViewController alloc]initWithTitle:@"Nu" andIdObject:@"ceva"  andMessageRezult:  @"Ne cerem scuze un alt utilizator a cumpart produsul deja."] animated:YES];
+            [self.navigationController pushViewController:[[ConfirmareMesajViewController alloc]initWithTitle:self.title andIdObject:@"ceva"  andMessageRezult:  @"Ne cerem scuze un alt utilizator a cumpart produsul deja."] animated:YES];
         }
    }];
   
