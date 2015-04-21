@@ -9,7 +9,7 @@
 #import "CumparaPrloduViewController.h"
 #import <Parse/Parse.h>
 
-@interface CumparaPrloduViewController ()
+@interface CumparaPrloduViewController ()<UITextFieldDelegate>
 
 @property (nonatomic , strong)PFObject *transfObjects;
 
