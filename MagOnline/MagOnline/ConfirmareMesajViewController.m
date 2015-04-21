@@ -14,13 +14,13 @@
 
 @implementation ConfirmareMesajViewController
 
--(instancetype)initWithTitle:(NSString *) Titlu andIdObject:(NSString *) idObject{
+-(instancetype)initWithTitle:(NSString *) Titlu andIdObject:(NSString *) idObject andMessageRezult: (NSString *) rezultatMesaj{
     self = [super init];
-   /*
+   
     if(self)
     {
         self.title = Titlu;
-        _idObiectCurent = idObject;
+      /*  _idObiectCurent = idObject;
         PFQuery *query = [PFQuery queryWithClassName:@"Produse"];
         //NSLog(@"%@",idObject);
         _transfObjects = nil;
@@ -48,9 +48,9 @@
                 // Log details of the failure
                 NSLog(@"Error: %@ %@", error, [error userInfo]);
             }
-        }];
+        }];*/
     }
-    */
+    
     return self;
 }
 

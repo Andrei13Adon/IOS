@@ -10,6 +10,6 @@
 
 @interface ConfirmareMesajViewController : UIViewController
 
--(instancetype)initWithTitle:(NSString *) Titlu andIdObject:(NSString *) idObject;
+-(instancetype)initWithTitle:(NSString *) Titlu andIdObject:(NSString *) idObject andMessageRezult: (NSString *) rezultatMesaj;
 
 @end

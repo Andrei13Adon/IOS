@@ -140,7 +140,36 @@
      self.view.backgroundColor = [UIColor greenColor];
      else
      self.view.backgroundColor = [UIColor redColor]; */
-    [self.navigationController pushViewController:[[ConfirmareMesajViewController alloc]initWithTitle:@"ceva" andIdObject:@"ceva"] animated:YES];
+    PFQuery *query = [PFQuery queryWithClassName:@"Produse"];
+    //[query whereKey:@"Disponibil" equalTo:@YES];
+    _transfObjects = nil;
+   [query getObjectInBackgroundWithId:_idObiectCurent block:^(PFObject *someTxt, NSError *error) {
+        if (!error && [someTxt[@"Disponibil"] isEqual:@YES]) {
+            NSLog(@"%@",someTxt[@"Disponibil"]);
+    
+    // Create a pointer to an object of class
+    PFObject *confirmare = [PFObject objectWithoutDataWithClassName:@"Produse" objectId:_idObiectCurent];
+    
+    // Set a new value on quantity
+    [confirmare setObject: _tfNume.text forKey:@"NumeCumparator"];
+    [confirmare setObject: _tfPrenume.text forKey:@"PrenumeCumparator"];
+    [confirmare setObject: _tfTelefon.text forKey:@"NumarTelefonCumparator"];
+    [confirmare setObject: _tfMail.text forKey:@"MailCumparator"];
+    [confirmare setObject: _tfAdresa.text forKey:@"AdresaCumparator"];
+            [confirmare setObject: @NO forKey:@"Disponibil"];
+    
+    // Save
+    [confirmare saveInBackground];
+    
+    
+    NSString *temp = _tfAdresa.text;
+    [self.navigationController pushViewController:[[ConfirmareMesajViewController alloc]initWithTitle:self.title andIdObject:@"ceva"  andMessageRezult:  @"Produsul a fost cumpart cu succes!"] animated:YES];
+ 
+        }else{
+            [self.navigationController pushViewController:[[ConfirmareMesajViewController alloc]initWithTitle:@"Nu" andIdObject:@"ceva"  andMessageRezult:  @"Ne cerem scuze un alt utilizator a cumpart produsul deja."] animated:YES];
+        }
+   }];
+  
 }
 
 @end
