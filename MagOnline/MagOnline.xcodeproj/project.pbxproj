@@ -31,6 +31,7 @@
 		8C8D3C921ACB062A00A5BD5D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8D3C911ACB062A00A5BD5D /* SystemConfiguration.framework */; };
 		8C8D3C941ACB063500A5BD5D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8D3C931ACB063500A5BD5D /* libz.dylib */; };
 		8C8D3C961ACB064000A5BD5D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8D3C951ACB064000A5BD5D /* libsqlite3.dylib */; };
+		8C958AD41AE6A8D60019D46A /* ConfirmareMesajViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C958AD31AE6A8D60019D46A /* ConfirmareMesajViewController.m */; };
 		8C9CBE361AD52F55008F288B /* CumparaPrloduViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9CBE351AD52F55008F288B /* CumparaPrloduViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,8 @@
 		8C8D3C911ACB062A00A5BD5D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8C8D3C931ACB063500A5BD5D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		8C8D3C951ACB064000A5BD5D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		8C958AD21AE6A8D60019D46A /* ConfirmareMesajViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmareMesajViewController.h; sourceTree = "<group>"; };
+		8C958AD31AE6A8D60019D46A /* ConfirmareMesajViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmareMesajViewController.m; sourceTree = "<group>"; };
 		8C9CBE341AD52F55008F288B /* CumparaPrloduViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CumparaPrloduViewController.h; sourceTree = "<group>"; };
 		8C9CBE351AD52F55008F288B /* CumparaPrloduViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CumparaPrloduViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -245,11 +248,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8C958AD11AE6A89C0019D46A /* Mesaj Confirmare */ = {
+			isa = PBXGroup;
+			children = (
+				8C958AD21AE6A8D60019D46A /* ConfirmareMesajViewController.h */,
+				8C958AD31AE6A8D60019D46A /* ConfirmareMesajViewController.m */,
+			);
+			name = "Mesaj Confirmare";
+			sourceTree = "<group>";
+		};
 		8C9CBE331AD52EE9008F288B /* Cumpara Produs */ = {
 			isa = PBXGroup;
 			children = (
 				8C9CBE341AD52F55008F288B /* CumparaPrloduViewController.h */,
 				8C9CBE351AD52F55008F288B /* CumparaPrloduViewController.m */,
+				8C958AD11AE6A89C0019D46A /* Mesaj Confirmare */,
 			);
 			name = "Cumpara Produs";
 			sourceTree = "<group>";
@@ -360,6 +373,7 @@
 				8C4BF8A21AB9EBAE009C189F /* AfisareCategorieTableViewController.m in Sources */,
 				8C835F3B1AB88C8C003E5A7C /* AppDelegate.m in Sources */,
 				8C404CB01AD43703006BAB0D /* ProdusViewController.m in Sources */,
+				8C958AD41AE6A8D60019D46A /* ConfirmareMesajViewController.m in Sources */,
 				8C292AC11ACC4B5A00A6258A /* AfisareProduseViewController.m in Sources */,
 				8C835F381AB88C8C003E5A7C /* main.m in Sources */,
 			);

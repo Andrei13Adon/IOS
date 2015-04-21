@@ -15,7 +15,10 @@
 
 @property (nonatomic , strong)NSString *idObiectCurent;
 
-@property (nonatomic, strong)UITextField *tfNume,*tfPrenume,*tfAdresa,*tfMail;
+@property (strong , nonatomic)UILabel *lNume,*lPrenume,*lAdresa,*lMail,*lTelefon;
+
+@property (nonatomic, strong)UITextField *tfNume,*tfPrenume,*tfAdresa,*tfMail,*tfTelefon;
+
 
 @end
 
@@ -60,13 +63,84 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-    CGFloat TextH = self.view.frame.size.height - 20 - 44 - 49  -50 ;
+    self.view.backgroundColor = [UIColor blackColor];
+  //  CGFloat TextH = self.view.frame.size.height - 20 - 44 - 49  -50 ;
     CGFloat textW = self.view.frame.size.width;
     ///??????
-    _tfNume = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, textW, 20)];
-    [self.view addSubview:_tfNume];
+    int startingPoint = 0;
+    _lNume = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint, textW, 20)];
+    _lNume.textColor = [UIColor whiteColor];
+    _lNume.text = @"Introduceti numele:";
+    [self.view addSubview:_lNume];
     
+    _tfNume = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20, textW, 20)];
+    _tfNume.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_tfNume];
+    _tfNume.delegate =self;
+    
+    _lPrenume = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 3, textW, 20)];
+    _lPrenume.textColor = [UIColor whiteColor];
+    _lPrenume.text = @"Introduceti prenume:";
+    [self.view addSubview:_lPrenume];
+    
+    _tfPrenume = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 4, textW, 20)];
+    _tfPrenume.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_tfPrenume];
+    _tfPrenume.delegate =self;
+    
+    _lTelefon = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 6, textW, 20)];
+    _lTelefon.textColor = [UIColor whiteColor];
+    _lTelefon.text = @"Introduceti telefonul:";
+    [self.view addSubview:_lTelefon];
+    
+    _tfTelefon = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 7, textW, 20)];
+    _tfTelefon.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_tfTelefon];
+    _tfTelefon.delegate =self;
+    
+    _lMail = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 9, textW, 20)];
+    _lMail.textColor = [UIColor whiteColor];
+    _lMail.text = @"Introduceti mailul:";
+    [self.view addSubview:_lMail];
+    
+    _tfMail = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 10, textW, 20)];
+    _tfMail.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_tfMail];
+    _tfMail.delegate =self;
+    
+    _lAdresa = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 12, textW, 20)];
+    _lAdresa.textColor = [UIColor whiteColor];
+    _lAdresa.text = @"Introduceti adresa:";
+    [self.view addSubview:_lAdresa];
+    
+    _tfAdresa = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 13, textW, 20)];
+    _tfAdresa.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_tfAdresa];
+    _tfAdresa.delegate =self;
+    
+    UIButton *ConfirmaCumparareaBut = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50, self.view.frame.size.width, 50)];
+    ConfirmaCumparareaBut.backgroundColor = [UIColor blueColor];
+    [ConfirmaCumparareaBut setTitle:@"Confirma Cumpararea"forState:UIControlStateNormal];
+    [self.view addSubview: ConfirmaCumparareaBut];
+    [ConfirmaCumparareaBut addTarget:self action:@selector(click) forControlEvents: UIControlEventTouchUpInside];
+    
+    
+    
+}
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
+}
+
+- (void)click {
+    /*  // self.view.backgroundColor = [UIColor greenColor];
+     if (self.view.backgroundColor == [UIColor redColor])
+     self.view.backgroundColor = [UIColor greenColor];
+     else
+     self.view.backgroundColor = [UIColor redColor]; */
+    [self.navigationController pushViewController:[[CumparaPrloduViewController alloc]initWintTiTle:self.title andProdusID:_idObiectCurent] animated:YES];
 }
 
 @end
