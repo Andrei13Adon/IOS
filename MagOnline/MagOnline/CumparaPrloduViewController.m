@@ -140,7 +140,7 @@
      self.view.backgroundColor = [UIColor greenColor];
      else
      self.view.backgroundColor = [UIColor redColor]; */
-    [self.navigationController pushViewController:[[CumparaPrloduViewController alloc]initWintTiTle:self.title andProdusID:_idObiectCurent] animated:YES];
+    [self.navigationController pushViewController:[[ConfirmareMesajViewController alloc]initWithTitle:@"ceva" andIdObject:@"ceva"] animated:YES];
 }
 
 @end
