@@ -15,10 +15,11 @@
 
 @property (nonatomic , strong)NSString *idObiectCurent;
 
-@property (strong , nonatomic)UILabel *lNume,*lPrenume,*lAdresa,*lMail,*lTelefon;
+@property (strong , nonatomic)UILabel *lNume,*lPrenume,*lAdresa,*lMail,*lTelefon,*lDescriere,*lCategorie;
 
-@property (nonatomic, strong)UITextField *tfNume,*tfPrenume,*tfAdresa,*tfMail,*tfTelefon;
+@property (nonatomic, strong)UITextField *tfNume,*tfPrenume,*tfAdresa,*tfMail,*tfTelefon,*tfDescriere;
 
+@property (nonatomic, strong)UIButton *butCategorie;
 
 @end
 
@@ -80,11 +81,37 @@
     [self.view addSubview:_tfAdresa];
     _tfAdresa.delegate =self;
     
+    _lDescriere = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 15, textW, 20)];
+    _lDescriere.textColor = [UIColor whiteColor];
+    _lDescriere.text = @"Introduceti descriere produs:";
+    [self.view addSubview:_lDescriere];
+    
+    _tfDescriere = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 16, textW, 20*2)];
+    _tfDescriere.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_tfDescriere];
+    _tfDescriere.delegate =self;
+    
+    _lCategorie = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 19, textW, 20)];
+    _lCategorie.textColor = [UIColor whiteColor];
+    _lCategorie.text = @"Selectati categorie produs:";
+    [self.view addSubview:_lCategorie];
+    
+    _butCategorie =[[UIButton alloc] initWithFrame: CGRectMake(0, startingPoint + 20 * 20, self.view.frame.size.width, 50)];
+   
+    _butCategorie.backgroundColor = [UIColor redColor];
+    [_butCategorie setTitle:@"Ar trebui sa fie categoria aici"forState:UIControlStateNormal];
+    [self.view addSubview: _butCategorie];
+    [_butCategorie addTarget:self action:Nil forControlEvents: UIControlEventTouchUpInside];
+    
+
+    
+    
     UIButton *ConfirmaCumparareaBut = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50, self.view.frame.size.width, 50)];
     ConfirmaCumparareaBut.backgroundColor = [UIColor blueColor];
     [ConfirmaCumparareaBut setTitle:@"Confirma Cumpararea"forState:UIControlStateNormal];
     [self.view addSubview: ConfirmaCumparareaBut];
     [ConfirmaCumparareaBut addTarget:self action:@selector(click) forControlEvents: UIControlEventTouchUpInside];
+
     
     
     
