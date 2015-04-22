@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AnuntViewController.h"
 
 @interface ConfirmareMesajViewController : UIViewController
 

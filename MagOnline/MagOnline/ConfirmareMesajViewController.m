@@ -8,7 +8,7 @@
 
 #import "ConfirmareMesajViewController.h"
 #import <Parse/Parse.h>
-#import "AppDelegate.h"
+//#import "AppDelegate.h"
 @interface ConfirmareMesajViewController ()
 
 //@property (nonatomic , strong)PFObject *transfObjects;
@@ -16,6 +16,8 @@
 @property (nonatomic , strong)NSString *idObiectCurent;
 
 @property (strong , nonatomic)UILabel *jMesaj;
+
+@property (strong , nonatomic)NSString *tempMesaj;
 
 @end
 
@@ -28,7 +30,8 @@
     {
         self.title = Titlu;
         _idObiectCurent = idObject;
-        _jMesaj.text = rezultatMesaj;
+        _tempMesaj = rezultatMesaj;
+        _jMesaj.text =_tempMesaj;
         
     }
     
@@ -41,6 +44,10 @@
     _jMesaj = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height- 20 - 44 - 49 -50)];
     _jMesaj.textColor = [UIColor whiteColor];
     [self.view addSubview:_jMesaj];
+    _jMesaj.text =_tempMesaj;
+    _jMesaj.numberOfLines = 0;
+    [_jMesaj sizeToFit];
+
     
     UIButton *CumparaProdusBut = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50, self.view.frame.size.width, 50)];
     CumparaProdusBut.backgroundColor = [UIColor blueColor];
@@ -51,6 +58,7 @@
 }
 
 - (void)click {
+    [self.navigationController pushViewController:[[AnuntViewController alloc]init]animated:YES];
    
 }
 
