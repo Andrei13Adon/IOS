@@ -1,123 +1,137 @@
 //
-//  AdaugViewController.m
+//  CumparaPrloduViewController.m
 //  MagOnline
 //
-//  Created by LaboratoriOS Cronian Academy on 17/03/15.
+//  Created by LaboratoriOS Cronian Academy on 08/04/15.
 //  Copyright (c) 2015 student. All rights reserved.
 //
 
 #import "AdaugViewController.h"
 #import <Parse/Parse.h>
-@interface AdaugViewController ()
+
+@interface AdaugViewController ()<UITextFieldDelegate>
+
+@property (nonatomic , strong)PFObject *transfObjects;
+
+@property (nonatomic , strong)NSString *idObiectCurent;
+
+@property (strong , nonatomic)UILabel *lNume,*lPrenume,*lAdresa,*lMail,*lTelefon;
+
+@property (nonatomic, strong)UITextField *tfNume,*tfPrenume,*tfAdresa,*tfMail,*tfTelefon;
+
 
 @end
 
 @implementation AdaugViewController
-
-- (instancetype) initWithTitle:(NSString *) title{
-    self = [super init];
-    if(self){
-        self.title = title;
-    }
-    
-    //////test parse
-    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    testObject[@"foo"] = @"bar";
-    [testObject saveInBackground];
-    
-    //////
-    
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor blackColor];
+    //  CGFloat TextH = self.view.frame.size.height - 20 - 44 - 49  -50 ;
+    CGFloat textW = self.view.frame.size.width;
+    ///??????
+    int startingPoint = 0;
+    _lNume = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint, textW, 20)];
+    _lNume.textColor = [UIColor whiteColor];
+    _lNume.text = @"Introduceti numele:";
+    [self.view addSubview:_lNume];
     
-    //////test parse
-    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    testObject[@"foo"] = @"bar";
-    [testObject saveInBackground];
+    _tfNume = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20, textW, 20)];
+    _tfNume.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_tfNume];
+    _tfNume.delegate =self;
     
-    //////
+    _lPrenume = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 3, textW, 20)];
+    _lPrenume.textColor = [UIColor whiteColor];
+    _lPrenume.text = @"Introduceti prenume:";
+    [self.view addSubview:_lPrenume];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    _tfPrenume = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 4, textW, 20)];
+    _tfPrenume.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_tfPrenume];
+    _tfPrenume.delegate =self;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    _lTelefon = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 6, textW, 20)];
+    _lTelefon.textColor = [UIColor whiteColor];
+    _lTelefon.text = @"Introduceti telefonul:";
+    [self.view addSubview:_lTelefon];
     
-    // Configure the cell...
+    _tfTelefon = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 7, textW, 20)];
+    _tfTelefon.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_tfTelefon];
+    _tfTelefon.delegate =self;
     
-    return cell;
+    _lMail = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 9, textW, 20)];
+    _lMail.textColor = [UIColor whiteColor];
+    _lMail.text = @"Introduceti mailul:";
+    [self.view addSubview:_lMail];
+    
+    _tfMail = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 10, textW, 20)];
+    _tfMail.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_tfMail];
+    _tfMail.delegate =self;
+    
+    _lAdresa = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 12, textW, 20)];
+    _lAdresa.textColor = [UIColor whiteColor];
+    _lAdresa.text = @"Introduceti adresa:";
+    [self.view addSubview:_lAdresa];
+    
+    _tfAdresa = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 13, textW, 20)];
+    _tfAdresa.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_tfAdresa];
+    _tfAdresa.delegate =self;
+    
+    UIButton *ConfirmaCumparareaBut = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50, self.view.frame.size.width, 50)];
+    ConfirmaCumparareaBut.backgroundColor = [UIColor blueColor];
+    [ConfirmaCumparareaBut setTitle:@"Confirma Cumpararea"forState:UIControlStateNormal];
+    [self.view addSubview: ConfirmaCumparareaBut];
+    [ConfirmaCumparareaBut addTarget:self action:@selector(click) forControlEvents: UIControlEventTouchUpInside];
+    
+    
+    
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (void)click {
+    /*  // self.view.backgroundColor = [UIColor greenColor];
+     if (self.view.backgroundColor == [UIColor redColor])
+     self.view.backgroundColor = [UIColor greenColor];
+     else
+     self.view.backgroundColor = [UIColor redColor]; *//*
+    PFQuery *query = [PFQuery queryWithClassName:@"Produse"];
+    //[query whereKey:@"Disponibil" equalTo:@YES];
+    _transfObjects = nil;
+    [query getObjectInBackgroundWithId:_idObiectCurent block:^(PFObject *someTxt, NSError *error) {
+        if (!error && [someTxt[@"Disponibil"] isEqual:@YES]) {
+            // NSLog(@"%@",someTxt[@"Disponibil"]);
+            
+            // Create a pointer to an object of class
+            PFObject *confirmare = [PFObject objectWithoutDataWithClassName:@"Produse" objectId:_idObiectCurent];
+            
+            // Set a new value on quantity
+            [confirmare setObject: _tfNume.text forKey:@"NumeCumparator"];
+            [confirmare setObject: _tfPrenume.text forKey:@"PrenumeCumparator"];
+            [confirmare setObject: _tfTelefon.text forKey:@"NumarTelefonCumparator"];
+            [confirmare setObject: _tfMail.text forKey:@"MailCumparator"];
+            [confirmare setObject: _tfAdresa.text forKey:@"AdresaCumparator"];
+            [confirmare setObject: @NO forKey:@"Disponibil"];
+            
+            // Save
+            [confirmare saveInBackground];
+            
+            
+            NSString *temp = _tfAdresa.text;
+            [self.navigationController pushViewController:[[ConfirmareMesajViewController alloc]initWithTitle:self.title andIdObject:@"ceva"  andMessageRezult:  @"Produsul a fost cumpart cu succes!"] animated:YES];
+            
+        }else{
+            [self.navigationController pushViewController:[[ConfirmareMesajViewController alloc]initWithTitle:self.title andIdObject:@"ceva"  andMessageRezult:  @"Ne cerem scuze un alt utilizator a cumpart produsul deja."] animated:YES];
+        }
+    }];*/
+    
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

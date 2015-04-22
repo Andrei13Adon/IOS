@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AdaugViewController : UITableViewController
+@interface AdaugViewController : UIViewController
 
 - (instancetype) initWithTitle:(NSString *) title;
 
