@@ -63,7 +63,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
-    _Descriere = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height- 20 - 44 - 49 -50)];
+    _Descriere = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height- 20 - 44 - 49 -50 - 50)];
     if(_transfObjects)
     {
         _Descriere.text = _transfObjects[@"Descriere"];
@@ -76,6 +76,12 @@
     }
     _Descriere.textColor = [UIColor whiteColor];
     [self.view addSubview:_Descriere];
+    
+    UIButton *burSeeComents = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50-50, self.view.frame.size.width, 50)];
+    burSeeComents.backgroundColor = [UIColor greenColor];
+    [burSeeComents setTitle:@"Vizualizeaza Comentariile"forState:UIControlStateNormal];
+    [self.view addSubview: burSeeComents];
+    [burSeeComents addTarget:self action:@selector(click2) forControlEvents: UIControlEventTouchUpInside];
     
     UIButton *CumparaProdusBut = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50, self.view.frame.size.width, 50)];
     CumparaProdusBut.backgroundColor = [UIColor blueColor];
@@ -94,6 +100,8 @@
     [self.navigationController pushViewController:[[CumparaPrloduViewController alloc]initWintTiTle:self.title andProdusID:_idObiectCurent] animated:YES];
     }
 
-
+- (void)click2 {
+ /*   [self.navigationController pushViewController:[[ComentsViewController alloc]initWithTitle:self.title  andObjectId:_idObiectCurent] animated:YES];*/
+}
 
 @end
