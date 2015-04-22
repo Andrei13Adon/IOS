@@ -9,7 +9,7 @@
 #import "AdaugViewController.h"
 #import <Parse/Parse.h>
 
-@interface AdaugViewController ()<UITextFieldDelegate>
+@interface AdaugViewController ()<UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
 
 @property (nonatomic , strong)PFObject *transfObjects;
 
@@ -17,9 +17,11 @@
 
 @property (strong , nonatomic)UILabel *lNume,*lPrenume,*lAdresa,*lMail,*lTelefon,*lDescriere,*lCategorie,*lTitlu;
 
-@property (nonatomic, strong)UITextField *tfNume,*tfPrenume,*tfAdresa,*tfMail,*tfTelefon,*tfDescriere,*tfTitlu;
+@property (nonatomic, strong)UITextField *tfNume,*tfPrenume,*tfAdresa,*tfMail,*tfTelefon,*tfDescriere,*tfCategorie,*tfTitlu;
 
-@property (nonatomic, strong)UIButton *butCategorie;
+@property(nonatomic, strong)  UIPickerView *myPickerView;
+@property(nonatomic, strong) NSArray *pickerArray;
+
 
 @end
 
@@ -41,81 +43,82 @@
     [self.view addSubview:_tfNume];
     _tfNume.delegate =self;
     
-    _lPrenume = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 3, textW, 20)];
+    _lPrenume = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 2, textW, 20)];
     _lPrenume.textColor = [UIColor whiteColor];
     _lPrenume.text = @"Introduceti prenume:";
     [self.view addSubview:_lPrenume];
     
-    _tfPrenume = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 4, textW, 20)];
+    _tfPrenume = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 3, textW, 20)];
     _tfPrenume.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tfPrenume];
     _tfPrenume.delegate =self;
     
-    _lTelefon = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 6, textW, 20)];
+    _lTelefon = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 4, textW, 20)];
     _lTelefon.textColor = [UIColor whiteColor];
     _lTelefon.text = @"Introduceti telefonul:";
     [self.view addSubview:_lTelefon];
     
-    _tfTelefon = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 7, textW, 20)];
+    _tfTelefon = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 5, textW, 20)];
     _tfTelefon.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tfTelefon];
     _tfTelefon.delegate =self;
     
-    _lMail = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 9, textW, 20)];
+    _lMail = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 6, textW, 20)];
     _lMail.textColor = [UIColor whiteColor];
     _lMail.text = @"Introduceti mailul:";
     [self.view addSubview:_lMail];
     
-    _tfMail = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 10, textW, 20)];
+    _tfMail = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 7, textW, 20)];
     _tfMail.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tfMail];
     _tfMail.delegate =self;
     
-    _lAdresa = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 12, textW, 20)];
+    _lAdresa = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 8, textW, 20)];
     _lAdresa.textColor = [UIColor whiteColor];
     _lAdresa.text = @"Introduceti adresa:";
     [self.view addSubview:_lAdresa];
     
-    _tfAdresa = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 13, textW, 20)];
+    _tfAdresa = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 9, textW, 20)];
     _tfAdresa.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tfAdresa];
     _tfAdresa.delegate =self;
     
-    _lTitlu = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 15, textW, 20)];
+    _lTitlu = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 10, textW, 20)];
     _lTitlu.textColor = [UIColor whiteColor];
     _lTitlu.text = @"Introduceti titlul produsului:";
     [self.view addSubview:_lTitlu];
     
-    _tfTitlu = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 16, textW, 20)];
+    _tfTitlu = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 11, textW, 20)];
     _tfTitlu.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tfTitlu];
     _tfTitlu.delegate =self;
 
     
-    _lDescriere = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 18, textW, 20)];
+    _lDescriere = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 12, textW, 20)];
     _lDescriere.textColor = [UIColor whiteColor];
     _lDescriere.text = @"Introduceti descriere produs:";
     [self.view addSubview:_lDescriere];
     
-    _tfDescriere = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 19, textW, 20*2)];
+    _tfDescriere = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 13, textW, 20)];
     _tfDescriere.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tfDescriere];
     _tfDescriere.delegate =self;
     
-    _lCategorie = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 21, textW, 20)];
+    
+    _lCategorie = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 14, textW, 20)];
     _lCategorie.textColor = [UIColor whiteColor];
     _lCategorie.text = @"Selectati categorie produs:";
     [self.view addSubview:_lCategorie];
     
-    _butCategorie =[[UIButton alloc] initWithFrame: CGRectMake(0, startingPoint + 20 * 22, self.view.frame.size.width, 50)];
-   
-    _butCategorie.backgroundColor = [UIColor redColor];
-    [_butCategorie setTitle:@"Ar trebui sa fie categoria aici"forState:UIControlStateNormal];//implicit linux
-    [self.view addSubview: _butCategorie];
-    [_butCategorie addTarget:self action:Nil forControlEvents: UIControlEventTouchUpInside];
+    //*************************
     
+    _tfCategorie =[[UITextField alloc] initWithFrame: CGRectMake(0, startingPoint + 20 * 15, self.view.frame.size.width, 20)];
+    _tfCategorie.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_tfCategorie];
+    _tfCategorie.delegate =self;
+    [self addPickerView];
 
-    
+     //*************************
     
     UIButton *ConfirmaCumparareaBut = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50, self.view.frame.size.width, 50)];
     ConfirmaCumparareaBut.backgroundColor = [UIColor blueColor];
@@ -123,8 +126,6 @@
     [self.view addSubview: ConfirmaCumparareaBut];
     [ConfirmaCumparareaBut addTarget:self action:@selector(click) forControlEvents: UIControlEventTouchUpInside];
 
-    
-    
     
 }
 
@@ -192,4 +193,55 @@
     
 }
 
+-(void)addPickerView{
+    _pickerArray = [[NSArray alloc]initWithObjects:@"Chess",
+                   @"Cricket",@"Football",@"Tennis",@"Volleyball", nil];
+    _myPickerView = [[UIPickerView alloc]init];
+    _myPickerView.dataSource = self;
+    _myPickerView.delegate = self;
+    _myPickerView.showsSelectionIndicator = YES;
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Done" style:UIBarButtonItemStyleDone
+                                   target:self action:@selector(done)];
+    UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:
+                          CGRectMake(0, self.view.frame.size.height-50, 320, 50)];
+    [toolBar setBarStyle:UIBarStyleBlackOpaque];
+    NSArray *toolbarItems = [NSArray arrayWithObjects:
+                             doneButton, nil];
+    [toolBar setItems:toolbarItems];
+    _tfCategorie.inputView = _myPickerView;
+    _tfCategorie.inputAccessoryView = toolBar;
+    
+}
+
+#pragma mark - Text field delegates
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    if ([textField.text isEqualToString:@""]) {
+        //[self dateChanged:nil];
+    }
+}
+#pragma mark - Picker View Data source
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+-(NSInteger)pickerView:(UIPickerView *)pickerView
+numberOfRowsInComponent:(NSInteger)component{
+    return [_pickerArray count];
+}
+
+#pragma mark- Picker View Delegate
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:
+(NSInteger)row inComponent:(NSInteger)component{
+    [_tfCategorie setText:[_pickerArray objectAtIndex:row]];
+}
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:
+(NSInteger)row forComponent:(NSInteger)component{
+    return [_pickerArray objectAtIndex:row];
+}
+
+-(void) done{
+    [_myPickerView removeFromSuperview];
+}
 @end
