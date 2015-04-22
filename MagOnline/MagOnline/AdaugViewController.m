@@ -94,25 +94,25 @@
     _tfTitlu.delegate =self;
 
     
-    _lDescriere = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 12, textW, 20)];
+    _lDescriere = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 14, textW, 20)];
     _lDescriere.textColor = [UIColor whiteColor];
     _lDescriere.text = @"Introduceti descriere produs:";
     [self.view addSubview:_lDescriere];
     
-    _tfDescriere = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 13, textW, 20)];
+    _tfDescriere = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 15, textW, 20)];
     _tfDescriere.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tfDescriere];
     _tfDescriere.delegate =self;
     
     
-    _lCategorie = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 14, textW, 20)];
+    _lCategorie = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 12, textW, 20)];
     _lCategorie.textColor = [UIColor whiteColor];
     _lCategorie.text = @"Selectati categorie produs:";
     [self.view addSubview:_lCategorie];
     
     //*************************
     
-    _tfCategorie =[[UITextField alloc] initWithFrame: CGRectMake(0, startingPoint + 20 * 15, self.view.frame.size.width, 20)];
+    _tfCategorie =[[UITextField alloc] initWithFrame: CGRectMake(0, startingPoint + 20 * 13, self.view.frame.size.width, 20)];
     _tfCategorie.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tfCategorie];
     _tfCategorie.delegate =self;
@@ -147,17 +147,46 @@
     newRow[@"NumarTelefonCreator"] = _tfTelefon.text;
     newRow[@"MailCreator"] = _tfMail.text;
     newRow[@"AdresaCreator"] = _tfAdresa.text;
-    newRow[@"Descriere"] = _tfDescriere.text;
     newRow[@"Titlu"] = _tfTitlu.text;
     newRow[@"CategoriiID"] = @"FShZlLwd1V"; //trebuie modificat implicit linux
     newRow[@"Disponibil"] = @YES;
+    ///****descriere
+    ///newRow[@"Descriere"] = _tfDescriere.text;
+   //**de modificat sus
+    NSLog(@"test %@", _tfDescriere.text);
+    NSString *Tipul = _tfDescriere.text;
+    NSLog(@"test %@", _tfDescriere.text);
+    PFQuery *query = [PFQuery queryWithClassName:@"Categorii"];
+    [query whereKey:@"Titlu" equalTo:Tipul];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSLog(@"%@", objects);
+        if (!error) {
+            //????
+            NSMutableArray *transfObjects = [NSMutableArray arrayWithArray:objects];
+            NSString *objectId = [[transfObjects objectAtIndex:0] objectId];
+            NSLog(@"%@", objects);
+            NSLog(@"%@", objectId);
+            /* // The find succeeded.
+             NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
+             // Do something with the found objects
+             for (PFObject *object in objects) {
+             NSLog(@"%@", object.objectId);
+             NSLog(@"%@" , object[@"Titlu"]);
+             }*/
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    /*
+    ///***
     [newRow saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             [self.navigationController pushViewController:[[ConfirmareMesajViewController alloc]initWithTitle:_tfTitlu.text andIdObject:@"ceva"  andMessageRezult:  @"Produsul a fost adugat cu succes"] animated:YES];
         } else {
             [self.navigationController pushViewController:[[ConfirmareMesajViewController alloc]initWithTitle:_tfTitlu.text andIdObject:@"ceva"  andMessageRezult:  @"Produsul  nu a putut fi adugat"] animated:YES];
         }
-    }];
+    }];*/
     
     /*
     ///*******
@@ -194,7 +223,7 @@
 }
 
 -(void)addPickerView{
-    _pickerArray = [[NSArray alloc]initWithObjects:@"Chess",
+    _pickerArray = [[NSArray alloc]initWithObjects:@"Chess",@"Linux",
                    @"Cricket",@"Football",@"Tennis",@"Volleyball", nil];
     _myPickerView = [[UIPickerView alloc]init];
     _myPickerView.dataSource = self;
@@ -243,5 +272,6 @@ numberOfRowsInComponent:(NSInteger)component{
 
 -(void) done{
     [_myPickerView removeFromSuperview];
+    [self reloadInputViews];
 }
 @end
