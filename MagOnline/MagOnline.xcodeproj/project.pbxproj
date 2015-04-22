@@ -10,6 +10,7 @@
 		8C292AC11ACC4B5A00A6258A /* AfisareProduseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C292AC01ACC4B5A00A6258A /* AfisareProduseViewController.m */; };
 		8C404CB01AD43703006BAB0D /* ProdusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C404CAF1AD43703006BAB0D /* ProdusViewController.m */; };
 		8C4BF8A21AB9EBAE009C189F /* AfisareCategorieTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4BF8A11AB9EBAE009C189F /* AfisareCategorieTableViewController.m */; };
+		8C7155291AE7A685003E0884 /* ComentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7155281AE7A685003E0884 /* ComentsViewController.m */; };
 		8C835F381AB88C8C003E5A7C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C835F371AB88C8C003E5A7C /* main.m */; };
 		8C835F3B1AB88C8C003E5A7C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C835F3A1AB88C8C003E5A7C /* AppDelegate.m */; };
 		8C835F431AB88C8C003E5A7C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C835F421AB88C8C003E5A7C /* Images.xcassets */; };
@@ -52,6 +53,8 @@
 		8C404CAF1AD43703006BAB0D /* ProdusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProdusViewController.m; sourceTree = "<group>"; };
 		8C4BF8A01AB9EBAE009C189F /* AfisareCategorieTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AfisareCategorieTableViewController.h; sourceTree = "<group>"; };
 		8C4BF8A11AB9EBAE009C189F /* AfisareCategorieTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AfisareCategorieTableViewController.m; sourceTree = "<group>"; };
+		8C7155271AE7A685003E0884 /* ComentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComentsViewController.h; sourceTree = "<group>"; };
+		8C7155281AE7A685003E0884 /* ComentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComentsViewController.m; sourceTree = "<group>"; };
 		8C835F321AB88C8C003E5A7C /* MagOnline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagOnline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C835F361AB88C8C003E5A7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C835F371AB88C8C003E5A7C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -133,6 +136,7 @@
 			children = (
 				8C404CAE1AD43703006BAB0D /* ProdusViewController.h */,
 				8C404CAF1AD43703006BAB0D /* ProdusViewController.m */,
+				8C7155261AE7A634003E0884 /* Comentarii Produs */,
 				8C9CBE331AD52EE9008F288B /* Cumpara Produs */,
 			);
 			name = Produs;
@@ -146,6 +150,15 @@
 				8C292ABE1ACC4AE600A6258A /* AfisareProduse */,
 			);
 			name = AfisareCategorii;
+			sourceTree = "<group>";
+		};
+		8C7155261AE7A634003E0884 /* Comentarii Produs */ = {
+			isa = PBXGroup;
+			children = (
+				8C7155271AE7A685003E0884 /* ComentsViewController.h */,
+				8C7155281AE7A685003E0884 /* ComentsViewController.m */,
+			);
+			name = "Comentarii Produs";
 			sourceTree = "<group>";
 		};
 		8C835F291AB88C8B003E5A7C = {
@@ -373,6 +386,7 @@
 				8C4BF8A21AB9EBAE009C189F /* AfisareCategorieTableViewController.m in Sources */,
 				8C835F3B1AB88C8C003E5A7C /* AppDelegate.m in Sources */,
 				8C404CB01AD43703006BAB0D /* ProdusViewController.m in Sources */,
+				8C7155291AE7A685003E0884 /* ComentsViewController.m in Sources */,
 				8C958AD41AE6A8D60019D46A /* ConfirmareMesajViewController.m in Sources */,
 				8C292AC11ACC4B5A00A6258A /* AfisareProduseViewController.m in Sources */,
 				8C835F381AB88C8C003E5A7C /* main.m in Sources */,

@@ -15,7 +15,7 @@
 
 @property (nonatomic , assign)NSInteger idCategorie;
 
-@property (strong , nonatomic)SubCategorii *subCategorie1;
+//@property (strong , nonatomic)SubCategorii *subCategorie1;
 
 @property (nonatomic , strong)NSMutableArray *transfObjects;
 
@@ -35,7 +35,7 @@
   //      _transfObjects = [[NSArray alloc] init];
         //return parse
         PFQuery *query = [PFQuery queryWithClassName:@"Categorii"];
-        [query whereKey:@"Tip" equalTo:@1];
+        [query whereKey:@"Tip" equalTo:@1];//aici trebuie modificat
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error) {
                 //????

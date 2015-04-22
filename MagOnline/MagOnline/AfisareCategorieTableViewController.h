@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SubCategorii.h"
+//#import "SubCategorii.h"
 #import "AfisareProduseViewController.h"
 
 @interface AfisareCategorieTableViewController : UIViewController
