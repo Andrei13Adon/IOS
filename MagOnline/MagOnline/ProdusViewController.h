@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "CumparaPrloduViewController.h"
-#import "ComentsViewController.h"
 
 @interface ProdusViewController : UIViewController
 
