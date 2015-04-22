@@ -15,9 +15,9 @@
 
 @property (nonatomic , strong)NSString *idObiectCurent;
 
-@property (strong , nonatomic)UILabel *lNume,*lPrenume,*lAdresa,*lMail,*lTelefon,*lDescriere,*lCategorie;
+@property (strong , nonatomic)UILabel *lNume,*lPrenume,*lAdresa,*lMail,*lTelefon,*lDescriere,*lCategorie,*lTitlu;
 
-@property (nonatomic, strong)UITextField *tfNume,*tfPrenume,*tfAdresa,*tfMail,*tfTelefon,*tfDescriere;
+@property (nonatomic, strong)UITextField *tfNume,*tfPrenume,*tfAdresa,*tfMail,*tfTelefon,*tfDescriere,*tfTitlu;
 
 @property (nonatomic, strong)UIButton *butCategorie;
 
@@ -81,25 +81,36 @@
     [self.view addSubview:_tfAdresa];
     _tfAdresa.delegate =self;
     
-    _lDescriere = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 15, textW, 20)];
+    _lTitlu = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 15, textW, 20)];
+    _lTitlu.textColor = [UIColor whiteColor];
+    _lTitlu.text = @"Introduceti titlul produsului:";
+    [self.view addSubview:_lTitlu];
+    
+    _tfTitlu = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 16, textW, 20)];
+    _tfTitlu.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_tfTitlu];
+    _tfTitlu.delegate =self;
+
+    
+    _lDescriere = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 18, textW, 20)];
     _lDescriere.textColor = [UIColor whiteColor];
     _lDescriere.text = @"Introduceti descriere produs:";
     [self.view addSubview:_lDescriere];
     
-    _tfDescriere = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 16, textW, 20*2)];
+    _tfDescriere = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 19, textW, 20*2)];
     _tfDescriere.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tfDescriere];
     _tfDescriere.delegate =self;
     
-    _lCategorie = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 19, textW, 20)];
+    _lCategorie = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 21, textW, 20)];
     _lCategorie.textColor = [UIColor whiteColor];
     _lCategorie.text = @"Selectati categorie produs:";
     [self.view addSubview:_lCategorie];
     
-    _butCategorie =[[UIButton alloc] initWithFrame: CGRectMake(0, startingPoint + 20 * 20, self.view.frame.size.width, 50)];
+    _butCategorie =[[UIButton alloc] initWithFrame: CGRectMake(0, startingPoint + 20 * 22, self.view.frame.size.width, 50)];
    
     _butCategorie.backgroundColor = [UIColor redColor];
-    [_butCategorie setTitle:@"Ar trebui sa fie categoria aici"forState:UIControlStateNormal];
+    [_butCategorie setTitle:@"Ar trebui sa fie categoria aici"forState:UIControlStateNormal];//implicit linux
     [self.view addSubview: _butCategorie];
     [_butCategorie addTarget:self action:Nil forControlEvents: UIControlEventTouchUpInside];
     
@@ -108,7 +119,7 @@
     
     UIButton *ConfirmaCumparareaBut = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50, self.view.frame.size.width, 50)];
     ConfirmaCumparareaBut.backgroundColor = [UIColor blueColor];
-    [ConfirmaCumparareaBut setTitle:@"Confirma Cumpararea"forState:UIControlStateNormal];
+    [ConfirmaCumparareaBut setTitle:@"Adauga produs nou"forState:UIControlStateNormal];
     [self.view addSubview: ConfirmaCumparareaBut];
     [ConfirmaCumparareaBut addTarget:self action:@selector(click) forControlEvents: UIControlEventTouchUpInside];
 
@@ -128,7 +139,27 @@
      if (self.view.backgroundColor == [UIColor redColor])
      self.view.backgroundColor = [UIColor greenColor];
      else
-     self.view.backgroundColor = [UIColor redColor]; *//*
+     self.view.backgroundColor = [UIColor redColor]; */
+    PFObject *newRow = [PFObject objectWithClassName:@"Produse"];
+    newRow[@"NumeCreator"] = _tfNume.text;
+    newRow[@"PrenumeCreator"] = _tfPrenume.text;
+    newRow[@"NumarTelefonCreator"] = _tfTelefon.text;
+    newRow[@"MailCreator"] = _tfMail.text;
+    newRow[@"AdresaCreator"] = _tfAdresa.text;
+    newRow[@"Descriere"] = _tfDescriere.text;
+    newRow[@"Titlu"] = _tfTitlu.text;
+    newRow[@"CategoriiID"] = @"FShZlLwd1V"; //trebuie modificat implicit linux
+    newRow[@"Disponibil"] = @YES;
+    [newRow saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self.navigationController pushViewController:[[ConfirmareMesajViewController alloc]initWithTitle:_tfTitlu.text andIdObject:@"ceva"  andMessageRezult:  @"Produsul a fost adugat cu succes"] animated:YES];
+        } else {
+            [self.navigationController pushViewController:[[ConfirmareMesajViewController alloc]initWithTitle:_tfTitlu.text andIdObject:@"ceva"  andMessageRezult:  @"Produsul  nu a putut fi adugat"] animated:YES];
+        }
+    }];
+    
+    /*
+    ///*******
     PFQuery *query = [PFQuery queryWithClassName:@"Produse"];
     //[query whereKey:@"Disponibil" equalTo:@YES];
     _transfObjects = nil;
