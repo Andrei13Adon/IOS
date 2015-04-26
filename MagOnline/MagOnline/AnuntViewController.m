@@ -40,7 +40,7 @@
     _but2.backgroundColor = [UIColor colorWithRed:0.161 green:0.502 blue:0.725 alpha:1];
     _but2.tag = 2;
     [_but2 addTarget:self action:@selector(butPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [_but2 setTitle:@"Software"forState:UIControlStateNormal];
+    [_but2 setTitle:@"Calculatoare"forState:UIControlStateNormal];
 
     [self.view addSubview:_but2];
     
@@ -48,7 +48,7 @@
     _but3.backgroundColor = [UIColor greenColor];
     _but3.tag = 3;
     [_but3 addTarget:self action:@selector(butPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [_but3 setTitle:@"Software"forState:UIControlStateNormal];
+    [_but3 setTitle:@"Laptopuri"forState:UIControlStateNormal];
 
     [self.view addSubview:_but3];
     
@@ -56,7 +56,7 @@
     _but4.backgroundColor = [UIColor greenColor];
     _but4.tag = 4;
     [_but4 addTarget:self action:@selector(butPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [_but4 setTitle:@"Software"forState:UIControlStateNormal];
+    [_but4 setTitle:@"Masini"forState:UIControlStateNormal];
 
     [self.view addSubview:_but4];
     
@@ -64,7 +64,7 @@
     _but5.backgroundColor = [UIColor colorWithRed:0.161 green:0.502 blue:0.725 alpha:1];
     _but5.tag = 5;
     [_but5 addTarget:self action:@selector(butPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [_but5 setTitle:@"Software"forState:UIControlStateNormal];
+    [_but5 setTitle:@"Electrocasnice"forState:UIControlStateNormal];
 
     [self.view addSubview:_but5];
     
@@ -72,7 +72,7 @@
     _but6.backgroundColor = [UIColor colorWithRed:0.906 green:0.298 blue:0.235 alpha:1];
     _but6.tag = 6;
     [_but6 addTarget:self action:@selector(butPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [_but6 setTitle:@"Software"forState:UIControlStateNormal];
+    [_but6 setTitle:@"Mobilier"forState:UIControlStateNormal];
 
     [self.view addSubview:_but6];
 }
