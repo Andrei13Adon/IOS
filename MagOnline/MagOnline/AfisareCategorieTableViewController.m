@@ -35,7 +35,7 @@
   //      _transfObjects = [[NSArray alloc] init];
         //return parse
         PFQuery *query = [PFQuery queryWithClassName:@"Categorii"];
-        [query whereKey:@"Tip" equalTo:@1];//aici trebuie modificat
+        [query whereKey:@"Tip" equalTo:@_idCategorie];//aici a fost modifiact
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error) {
                 //????
