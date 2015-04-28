@@ -9,19 +9,15 @@
 #import "AdaugViewController.h"
 #import <Parse/Parse.h>
 
-@interface AdaugViewController ()<UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
+@interface AdaugViewController ()<UITextFieldDelegate>
 
 @property (nonatomic , strong)PFObject *transfObjects;
 
 @property (nonatomic , strong)NSString *idObiectCurent;
 
-@property (strong , nonatomic)UILabel *lNume,*lPrenume,*lAdresa,*lMail,*lTelefon,*lDescriere,*lCategorie,*lTitlu;
+@property (strong , nonatomic)UILabel *lNume,*lPrenume,*lAdresa,*lMail,*lTelefon,*lDescriere,*lTitlu;
 
-@property (nonatomic, strong)UITextField *tfNume,*tfPrenume,*tfAdresa,*tfMail,*tfTelefon,*tfDescriere,*tfCategorie,*tfTitlu;
-
-@property(nonatomic, strong)  UIPickerView *myPickerView;
-@property(nonatomic, strong) NSArray *pickerArray;
-
+@property (nonatomic, strong)UITextField *tfNume,*tfPrenume,*tfAdresa,*tfMail,*tfTelefon,*tfDescriere,*tfTitlu;
 
 @end
 
@@ -105,31 +101,15 @@
     _tfTitlu.delegate =self;
 
     
-    _lDescriere = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 14, textW, 20)];
+    _lDescriere = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 12, textW, 20)];
     _lDescriere.textColor = [UIColor whiteColor];
     _lDescriere.text = @"Introduceti descriere produs:";
     [self.view addSubview:_lDescriere];
     
-    _tfDescriere = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 15, textW, 20)];
+    _tfDescriere = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 13, textW, 20)];
     _tfDescriere.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tfDescriere];
     _tfDescriere.delegate =self;
-    
-    
-    _lCategorie = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 12, textW, 20)];
-    _lCategorie.textColor = [UIColor whiteColor];
-    _lCategorie.text = @"Selectati categorie produs:";
-    [self.view addSubview:_lCategorie];
-    
-    //*************************
-    
-    _tfCategorie =[[UITextField alloc] initWithFrame: CGRectMake(0, startingPoint + 20 * 13, self.view.frame.size.width, 20)];
-    _tfCategorie.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:_tfCategorie];
-    _tfCategorie.delegate =self;
-    [self addPickerView];
-
-     //*************************
     
     UIButton *ConfirmaCumparareaBut = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50, self.view.frame.size.width, 50)];
     ConfirmaCumparareaBut.backgroundColor = [UIColor blueColor];
@@ -233,56 +213,4 @@
     
 }
 
--(void)addPickerView{
-    _pickerArray = [[NSArray alloc]initWithObjects:@"Chess",@"Linux",
-                   @"Cricket",@"Football",@"Tennis",@"Volleyball", nil];
-    _myPickerView = [[UIPickerView alloc]init];
-    _myPickerView.dataSource = self;
-    _myPickerView.delegate = self;
-    _myPickerView.showsSelectionIndicator = YES;
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
-                                   initWithTitle:@"Done" style:UIBarButtonItemStyleDone
-                                   target:self action:@selector(done)];
-    UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:
-                          CGRectMake(0, self.view.frame.size.height-50, 320, 50)];
-    [toolBar setBarStyle:UIBarStyleBlackOpaque];
-    NSArray *toolbarItems = [NSArray arrayWithObjects:
-                             doneButton, nil];
-    [toolBar setItems:toolbarItems];
-    _tfCategorie.inputView = _myPickerView;
-    _tfCategorie.inputAccessoryView = toolBar;
-    
-}
-
-#pragma mark - Text field delegates
-
--(void)textFieldDidBeginEditing:(UITextField *)textField{
-    if ([textField.text isEqualToString:@""]) {
-        //[self dateChanged:nil];
-    }
-}
-#pragma mark - Picker View Data source
--(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    return 1;
-}
--(NSInteger)pickerView:(UIPickerView *)pickerView
-numberOfRowsInComponent:(NSInteger)component{
-    return [_pickerArray count];
-}
-
-#pragma mark- Picker View Delegate
-
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:
-(NSInteger)row inComponent:(NSInteger)component{
-    [_tfCategorie setText:[_pickerArray objectAtIndex:row]];
-}
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:
-(NSInteger)row forComponent:(NSInteger)component{
-    return [_pickerArray objectAtIndex:row];
-}
-
--(void) done{
-    [_myPickerView removeFromSuperview];
-    [self reloadInputViews];
-}
 @end
