@@ -38,6 +38,7 @@
 		8CB875AC1AEF7D1E000B94D0 /* AddComentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB875AB1AEF7D1E000B94D0 /* AddComentViewController.m */; };
 		8CB875AF1AEF8777000B94D0 /* AdaugaProduseTipButoaneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB875AE1AEF8777000B94D0 /* AdaugaProduseTipButoaneView.m */; };
 		8CDC384D1AEFC0CB009336FD /* AdaugatCategorieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC384C1AEFC0CB009336FD /* AdaugatCategorieViewController.m */; };
+		8CDC38521AEFCCB1009336FD /* ConfirmareProdusNouViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC38511AEFCCB1009336FD /* ConfirmareProdusNouViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,8 @@
 		8CB875AE1AEF8777000B94D0 /* AdaugaProduseTipButoaneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdaugaProduseTipButoaneView.m; sourceTree = "<group>"; };
 		8CDC384B1AEFC0CB009336FD /* AdaugatCategorieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdaugatCategorieViewController.h; sourceTree = "<group>"; };
 		8CDC384C1AEFC0CB009336FD /* AdaugatCategorieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdaugatCategorieViewController.m; sourceTree = "<group>"; };
+		8CDC38501AEFCCB1009336FD /* ConfirmareProdusNouViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmareProdusNouViewController.h; sourceTree = "<group>"; };
+		8CDC38511AEFCCB1009336FD /* ConfirmareProdusNouViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmareProdusNouViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,8 +331,18 @@
 			children = (
 				8C835F5F1AB89761003E5A7C /* AdaugViewController.h */,
 				8C835F601AB89761003E5A7C /* AdaugViewController.m */,
+				8CDC384F1AEFCC86009336FD /* Mesaj de confirmare */,
 			);
 			name = "Adaugare propriuzisa produs";
+			sourceTree = "<group>";
+		};
+		8CDC384F1AEFCC86009336FD /* Mesaj de confirmare */ = {
+			isa = PBXGroup;
+			children = (
+				8CDC38501AEFCCB1009336FD /* ConfirmareProdusNouViewController.h */,
+				8CDC38511AEFCCB1009336FD /* ConfirmareProdusNouViewController.m */,
+			);
+			name = "Mesaj de confirmare";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,6 +446,7 @@
 			files = (
 				8C9CBE361AD52F55008F288B /* CumparaPrloduViewController.m in Sources */,
 				8C8519191ACAF95500E33592 /* SubCategorii.m in Sources */,
+				8CDC38521AEFCCB1009336FD /* ConfirmareProdusNouViewController.m in Sources */,
 				8CB875AC1AEF7D1E000B94D0 /* AddComentViewController.m in Sources */,
 				8CB875AF1AEF8777000B94D0 /* AdaugaProduseTipButoaneView.m in Sources */,
 				8CDC384D1AEFC0CB009336FD /* AdaugatCategorieViewController.m in Sources */,

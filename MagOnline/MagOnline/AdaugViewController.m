@@ -143,9 +143,9 @@
     newRow[@"Descriere"] = _tfDescriere.text;
     [newRow saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            [self.navigationController pushViewController:[[ConfirmareMesajViewController alloc]initWithTitle:_tfTitlu.text andIdObject:@"ceva"  andMessageRezult:  @"Produsul a fost adugat cu succes"] animated:YES];
+            [self.navigationController pushViewController:[[ConfirmareProdusNouViewController alloc]initWithTitle:_tfTitlu.text andIdObject:@"ceva"  andMessageRezult:  @"Produsul a fost adugat cu succes"] animated:YES];
         } else {
-            [self.navigationController pushViewController:[[ConfirmareMesajViewController alloc]initWithTitle:_tfTitlu.text andIdObject:@"ceva"  andMessageRezult:  @"Produsul  nu a putut fi adugat"] animated:YES];
+            [self.navigationController pushViewController:[[ConfirmareProdusNouViewController alloc]initWithTitle:_tfTitlu.text andIdObject:@"ceva"  andMessageRezult:  @"Produsul  nu a putut fi adugat"] animated:YES];
         }
     }];
     

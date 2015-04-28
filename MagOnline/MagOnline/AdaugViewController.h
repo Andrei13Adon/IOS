@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ConfirmareMesajViewController.h"
+#import "ConfirmareProdusNouViewController.h"
 
 @interface AdaugViewController : UIViewController
 
