@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ContinutComentViewController.h"
+#import "AddComentViewController.h"
 
 @interface ComentsViewController : UIViewController
 

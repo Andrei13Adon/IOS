@@ -22,8 +22,9 @@
 
 - (instancetype)initWithTitle:(NSString *) Titlu andObjectId:(NSString *) idObject{
     self = [super init];
-    
-    self.title = Titlu;
+    NSMutableString *temp = [NSMutableString stringWithString: @"Comentarii din "];
+    [temp appendString:Titlu];
+    self.title = temp;
     _idCategorieTata = idObject;
     _transfObjects = [[NSMutableArray alloc] init];
     
@@ -63,11 +64,11 @@
     _mainTableView.delegate = self;
     _mainTableView.dataSource = self;
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIButton *addComent = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50, self.view.frame.size.width, 50)];
+    addComent.backgroundColor = [UIColor blueColor];
+    [addComent setTitle:@"Adauga comentariu nou"forState:UIControlStateNormal];
+    [self.view addSubview: addComent];
+    [addComent addTarget:self action:@selector(click) forControlEvents: UIControlEventTouchUpInside];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -117,6 +118,11 @@
     lista = [[ContinutComentViewController alloc] initWithTitle:self.title andIdObject:[[_transfObjects objectAtIndex:indexPath.row] objectId]];
     [self.navigationController pushViewController:lista animated:YES];
     
+}
+
+-(void) click{
+    
+    [self.navigationController pushViewController:[[AddComentViewController alloc] initWintTiTle: self.title andProdusID:_idCategorieTata] animated:YES];
 }
 
 /*
