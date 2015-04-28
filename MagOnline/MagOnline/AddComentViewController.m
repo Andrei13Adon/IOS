@@ -62,7 +62,7 @@
     
     UIButton *ConfirmaCumparareaBut = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50, self.view.frame.size.width, 50)];
     ConfirmaCumparareaBut.backgroundColor = [UIColor blueColor];
-    [ConfirmaCumparareaBut setTitle:@"Confirma Cumpararea"forState:UIControlStateNormal];
+    [ConfirmaCumparareaBut setTitle:@"Adauga Comentariul"forState:UIControlStateNormal];
     [self.view addSubview: ConfirmaCumparareaBut];
     [ConfirmaCumparareaBut addTarget:self action:@selector(click) forControlEvents: UIControlEventTouchUpInside];
     
