@@ -11,4 +11,6 @@
 
 @interface AdaugViewController : UIViewController
 
+- (instancetype)initWithTitle:(NSString *) Titlu andObjectId:(NSString *) idObject;
+
 @end
