@@ -104,18 +104,18 @@
     self.view.backgroundColor = [UIColor blackColor];
     //imagine de afisat
     _imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"placeholder.jpg"]];
-    _imageView.frame  = CGRectMake(0, 0, self.view.frame.size.width - 200, self.view.frame.size.width -200);
+    _imageView.frame  = CGRectMake(20, 0, self.view.frame.size.width - 200, self.view.frame.size.width -200);
     
-    _titluProdus = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 200, 0, 200, 20)];
-    _Pret = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 200, 20, 200, 20)];
+    _titluProdus = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 200 + 20, 0, 200 - 20, 20)];
+    _Pret = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 200 + 20, 20, 200 -20, 20)];
     
-    _Descriere = [[UILabel alloc] initWithFrame:CGRectMake(0, 200, self.view.frame.size.width, self.view.frame.size.height- 20 - 44 - 49 -50 - 50 - 200 - 100)];
+    _Descriere = [[UILabel alloc] initWithFrame:CGRectMake(20, 200, self.view.frame.size.width-20, self.view.frame.size.height- 20 - 44 - 49 -50 - 50 - 200 - 100)];
     
     CGFloat plecare = self.view.frame.size.height- 20 - 44 - 49 - 200;
-    _NumeVanzator = [[UILabel alloc] initWithFrame:CGRectMake(0, plecare, self.view.frame.size.width, 20)];
-    _Telefon = [[UILabel alloc] initWithFrame:CGRectMake(0, plecare +20, self.view.frame.size.width, 20)];
-    _Mail = [[UILabel alloc] initWithFrame:CGRectMake(0, plecare+40, self.view.frame.size.width, 20)];
-    _Adresa = [[UILabel alloc] initWithFrame:CGRectMake(0, plecare+60, self.view.frame.size.width, 40)];
+    _NumeVanzator = [[UILabel alloc] initWithFrame:CGRectMake(20, plecare, self.view.frame.size.width-40, 20)];
+    _Telefon = [[UILabel alloc] initWithFrame:CGRectMake(20, plecare +20, self.view.frame.size.width-40, 20)];
+    _Mail = [[UILabel alloc] initWithFrame:CGRectMake(20, plecare+40, self.view.frame.size.width-40, 20)];
+    _Adresa = [[UILabel alloc] initWithFrame:CGRectMake(20, plecare+60, self.view.frame.size.width-40, 40)];
     
     if(_transfObjects)
     {
