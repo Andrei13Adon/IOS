@@ -1,23 +1,73 @@
 //
-//  ComentsViewController.m
+//  AfisareProduseViewController.m
 //  MagOnline
 //
-//  Created by LaboratoriOS Cronian Academy on 22/04/15.
+//  Created by LaboratoriOS Cronian Academy on 01/04/15.
 //  Copyright (c) 2015 student. All rights reserved.
 //
 
 #import "ComentsViewController.h"
+#import <Parse/Parse.h>
+@interface ComentsViewController ()<UITableViewDelegate,UITableViewDataSource>
 
-@interface ComentsViewController ()
+@property (nonatomic , strong)NSMutableArray *transfObjects;
+
+@property (nonatomic , assign)NSString *idCategorieTata;
+
+@property (strong , nonatomic)UITableView *mainTableView;
 
 @end
 
 @implementation ComentsViewController
 
+- (instancetype)initWithTitle:(NSString *) Titlu andObjectId:(NSString *) idObject{
+    self = [super init];
+    
+    self.title = Titlu;
+    _idCategorieTata = idObject;
+    _transfObjects = [[NSMutableArray alloc] init];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Coments"];
+    //NSLog(@"%@",idObject);
+    
+    [query whereKey:@"IdProdusTata" equalTo:_idCategorieTata ];
+   // [query whereKey:@"Disponibil" equalTo:@YES];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            //????
+            _transfObjects = [NSMutableArray arrayWithArray:objects];
+            [_mainTableView reloadData];
+            /* // The find succeeded.
+             NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
+             // Do something with the found objects
+             for (PFObject *object in objects) {
+             NSLog(@"%@", object.objectId);
+             NSLog(@"%@" , object[@"Autor"]);
+             }*/
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the
-    [self addPickerView];
+    self.view.backgroundColor = [UIColor redColor];
+    _mainTableView = [[UITableView alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 20 - 44 - 49 -50) style:UITableViewStylePlain];
+    [_mainTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    [self.view addSubview:_mainTableView];
+    
+    _mainTableView.delegate = self;
+    _mainTableView.dataSource = self;
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,71 +75,58 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)addPickerView{
-    pickerArray = [[NSArray alloc]initWithObjects:@"Chess",
-                   @"Cricket",@"Football",@"Tennis",@"Volleyball", nil];
-    myTextField = [[UITextField alloc]initWithFrame:
-                   CGRectMake(10, 100, 300, 30)];
-    myTextField.borderStyle = UITextBorderStyleRoundedRect;
-    myTextField.textAlignment = UITextAlignmentCenter;
-    myTextField.delegate = self;
-    [self.view addSubview:myTextField];
-    [myTextField setPlaceholder:@"Pick a Sport"];
-    myPickerView = [[UIPickerView alloc]init];
-    myPickerView.dataSource = self;
-    myPickerView.delegate = self;
-    myPickerView.showsSelectionIndicator = YES;
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
-                                   initWithTitle:@"Done" style:UIBarButtonItemStyleDone
-                                   target:self action:@selector(done:)];
-    UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:
-                          CGRectMake(0, self.view.frame.size.height-
-                                     self.view.frame.size.height-50, 320, 50)];
-    [toolBar setBarStyle:UIBarStyleBlackOpaque];
-    NSArray *toolbarItems = [NSArray arrayWithObjects:
-                             doneButton, nil];
-    [toolBar setItems:toolbarItems];
-    myTextField.inputView = myPickerView;
-    myTextField.inputAccessoryView = toolBar;
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    //#warning Potentially incomplete method implementation.
+    // Return the number of sections.
+    return 1;
     
 }
 
-#pragma mark - Text field delegates
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    //#warning Incomplete method implementation.
+    // Return the number of rows in the section.
+    return _transfObjects.count;
+}
 
--(void)textFieldDidBeginEditing:(UITextField *)textField{
-    if ([textField.text isEqualToString:@""]) {
-        //[self dateChanged:nil];
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    if(_transfObjects.count > 0)
+    {
+        cell.textLabel.text = [_transfObjects[indexPath.row] objectForKey:@"Comentariu"];
+        //cell.backgroundColor = [UIColor redColor];
     }
-}
-#pragma mark - Picker View Data source
--(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    return 1;
-}
--(NSInteger)pickerView:(UIPickerView *)pickerView
-numberOfRowsInComponent:(NSInteger)component{
-    return [pickerArray count];
+    
+    // Configure the cell...
+    
+    return cell;
 }
 
-#pragma mark- Picker View Delegate
-
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:
-(NSInteger)row inComponent:(NSInteger)component{
-    [myTextField setText:[pickerArray objectAtIndex:row]];
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    //   NSLog(@"Am selectat celula de la indexpath %ld %@", (long)indexPath.row, [_transfObjects[indexPath.row] objectForKey:@"Titlu"]);
+    AfisareProduseViewController *lista;
+    /*
+     //gasirea id-ului din parse la obiectul pe care apesi
+     NSString *objectId = [[_transfObjects objectAtIndex:indexPath.row] objectId];
+     NSLog(@"%@", objectId);
+     */
+  //  lista = [[ProdusViewController alloc] initWithTitle:[_transfObjects[indexPath.row] objectForKey:@"Titlu"] andIdObject:[[_transfObjects objectAtIndex:indexPath.row] objectId]];
+    [self.navigationController pushViewController:lista animated:YES];
+    
 }
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:
-(NSInteger)row forComponent:(NSInteger)component{
-    return [pickerArray objectAtIndex:row];
-}
-
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

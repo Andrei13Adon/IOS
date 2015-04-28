@@ -101,8 +101,8 @@
     }
 
 - (void)click2 {
-    [self.navigationController pushViewController:[[ComentsViewController alloc] init] animated:YES];
- /*   [self.navigationController pushViewController:[[ComentsViewController alloc]initWithTitle:self.title  andObjectId:_idObiectCurent] animated:YES];*/
+   // [self.navigationController pushViewController:[[ComentsViewController alloc] init] animated:YES];
+    [self.navigationController pushViewController:[[ComentsViewController alloc]initWithTitle:self.title  andObjectId:_idObiectCurent] animated:YES];
 }
 
 @end

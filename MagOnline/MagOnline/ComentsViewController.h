@@ -9,15 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "ProdusViewController.h"
 
-@interface ComentsViewController : UIViewController<UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
-{
-    
-    UITextField *myTextField;
-    UIPickerView *myPickerView;
-    NSArray *pickerArray;
-}
+@interface ComentsViewController : UIViewController
 
 
-//- (instancetype)initWithTitle:(NSString *) Titlu andObjectId:(NSString *) idObject;
+- (instancetype)initWithTitle:(NSString *) Titlu andObjectId:(NSString *) idObject;
 
 @end
