@@ -13,7 +13,7 @@
 
 @property (nonatomic , strong)PFObject *transfObjects;
 
-@property (nonatomic , strong)NSString *idObiectCurent;
+@property (nonatomic , strong)NSString *idCategorieObiectCurent;
 
 @property (strong , nonatomic)UILabel *lNume,*lPrenume,*lAdresa,*lMail,*lTelefon,*lDescriere,*lTitlu;
 
@@ -27,8 +27,12 @@
 
     self = [super init];
     if(self){
+        self = [super init];
+        NSMutableString *temp = [NSMutableString stringWithString: @"Produsul in categoria "];
+        [temp appendString:Titlu];
+        [self setTitle:temp];
+        _idCategorieObiectCurent = idObject;
     }
-    
     return self;
     
 }
@@ -106,7 +110,7 @@
     _lDescriere.text = @"Introduceti descriere produs:";
     [self.view addSubview:_lDescriere];
     
-    _tfDescriere = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 13, textW, 20)];
+    _tfDescriere = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 13, textW, 40)];
     _tfDescriere.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tfDescriere];
     _tfDescriere.delegate =self;
@@ -127,11 +131,6 @@
 }
 
 - (void)click {
-    /*  // self.view.backgroundColor = [UIColor greenColor];
-     if (self.view.backgroundColor == [UIColor redColor])
-     self.view.backgroundColor = [UIColor greenColor];
-     else
-     self.view.backgroundColor = [UIColor redColor]; */
     PFObject *newRow = [PFObject objectWithClassName:@"Produse"];
     newRow[@"NumeCreator"] = _tfNume.text;
     newRow[@"PrenumeCreator"] = _tfPrenume.text;
@@ -139,45 +138,16 @@
     newRow[@"MailCreator"] = _tfMail.text;
     newRow[@"AdresaCreator"] = _tfAdresa.text;
     newRow[@"Titlu"] = _tfTitlu.text;
-    newRow[@"CategoriiID"] = @"FShZlLwd1V"; //trebuie modificat implicit linux
+    newRow[@"CategoriiID"] = _idCategorieObiectCurent;
     newRow[@"Disponibil"] = @YES;
-    ///****descriere
-    ///newRow[@"Descriere"] = _tfDescriere.text;
-   //**de modificat sus
-    NSLog(@"test %@", _tfDescriere.text);
-    NSString *Tipul = _tfDescriere.text;
-    NSLog(@"test %@", _tfDescriere.text);
-    PFQuery *query = [PFQuery queryWithClassName:@"Categorii"];
-    [query whereKey:@"Titlu" equalTo:Tipul];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        NSLog(@"%@", objects);
-        if (!error) {
-            //????
-            NSMutableArray *transfObjects = [NSMutableArray arrayWithArray:objects];
-            NSString *objectId = [[transfObjects objectAtIndex:0] objectId];
-            NSLog(@"%@", objects);
-            NSLog(@"%@", objectId);
-            /* // The find succeeded.
-             NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
-             // Do something with the found objects
-             for (PFObject *object in objects) {
-             NSLog(@"%@", object.objectId);
-             NSLog(@"%@" , object[@"Titlu"]);
-             }*/
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
-    /*
-    ///***
+    newRow[@"Descriere"] = _tfDescriere.text;
     [newRow saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             [self.navigationController pushViewController:[[ConfirmareMesajViewController alloc]initWithTitle:_tfTitlu.text andIdObject:@"ceva"  andMessageRezult:  @"Produsul a fost adugat cu succes"] animated:YES];
         } else {
             [self.navigationController pushViewController:[[ConfirmareMesajViewController alloc]initWithTitle:_tfTitlu.text andIdObject:@"ceva"  andMessageRezult:  @"Produsul  nu a putut fi adugat"] animated:YES];
         }
-    }];*/
+    }];
     
     /*
     ///*******

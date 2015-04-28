@@ -23,8 +23,6 @@
 
 - (void)viewDidLoad {
     self.view.backgroundColor=[UIColor whiteColor];
-    [self setTitle:@"Selectie tip produs de adugat"];
-    
     CGFloat butH = (self.view.frame.size.height - 20 - 44 - 49 ) / 6 ;
     CGFloat butW = self.view.frame.size.width;
     _but1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, butW, butH)];
