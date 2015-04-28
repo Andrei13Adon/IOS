@@ -23,6 +23,7 @@
 
 - (void)viewDidLoad {
     self.view.backgroundColor=[UIColor whiteColor];
+    [self setTitle:@"Selectie tip produs de adugat"];
     
     CGFloat butH = (self.view.frame.size.height - 20 - 44 - 49 ) / 6 ;
     CGFloat butW = self.view.frame.size.width;
@@ -80,22 +81,23 @@
 - (void)butPressed:(UIButton *)sender{
     
     UIButton *senderButton = (UIButton *)sender;
- /*   AfisareCategorieTableViewController *lista ;
+    AdaugatCategorieViewController *lista ;
+    NSString *adaugare = @"Selecatre categorie produs de adugat";
     if(senderButton.tag == 1)
-        lista = [[AfisareCategorieTableViewController alloc] initWithTitle:@"Software" andidCategorie:1 ];
+        lista = [[AdaugatCategorieViewController alloc] initWithTitle:adaugare andidCategorie:1 ];
     if(senderButton.tag == 2)
-        lista = [[AfisareCategorieTableViewController alloc] initWithTitle:@"Software" andidCategorie:2 ];
+        lista = [[AdaugatCategorieViewController alloc] initWithTitle:adaugare andidCategorie:2 ];
     if(senderButton.tag == 3)
-        lista = [[AfisareCategorieTableViewController alloc] initWithTitle:@"Software" andidCategorie:3 ];
+        lista = [[AdaugatCategorieViewController alloc] initWithTitle:adaugare andidCategorie:3 ];
     if(senderButton.tag == 4)
-        lista = [[AfisareCategorieTableViewController alloc] initWithTitle:@"Software" andidCategorie:4 ];
+        lista = [[AdaugatCategorieViewController alloc] initWithTitle:adaugare andidCategorie:4 ];
     if(senderButton.tag == 5)
-        lista = [[AfisareCategorieTableViewController alloc] initWithTitle:@"Software" andidCategorie:5 ];
+        lista = [[AdaugatCategorieViewController alloc] initWithTitle:adaugare andidCategorie:5 ];
     if(senderButton.tag == 6)
-        lista = [[AfisareCategorieTableViewController alloc] initWithTitle:@"Software" andidCategorie:6 ];
+        lista = [[AdaugatCategorieViewController alloc] initWithTitle:adaugare andidCategorie:6 ];
     
     
-    [self.navigationController pushViewController:lista animated:YES]; */
+    [self.navigationController pushViewController:lista animated:YES];
     
 }
 

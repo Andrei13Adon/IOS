@@ -11,6 +11,7 @@
 //va avea titlul Selecatre tip produs Adaugat
 
 #import <UIKit/UIKit.h>
+#import "AdaugatCategorieViewController.h"
 
 @interface AdaugaProduseTipButoaneView : UIViewController
 

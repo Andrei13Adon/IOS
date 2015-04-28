@@ -37,6 +37,7 @@
 		8CB875A81AEF7595000B94D0 /* ContinutComentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB875A71AEF7595000B94D0 /* ContinutComentViewController.m */; };
 		8CB875AC1AEF7D1E000B94D0 /* AddComentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB875AB1AEF7D1E000B94D0 /* AddComentViewController.m */; };
 		8CB875AF1AEF8777000B94D0 /* AdaugaProduseTipButoaneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB875AE1AEF8777000B94D0 /* AdaugaProduseTipButoaneView.m */; };
+		8CDC384D1AEFC0CB009336FD /* AdaugatCategorieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC384C1AEFC0CB009336FD /* AdaugatCategorieViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,8 @@
 		8CB875AB1AEF7D1E000B94D0 /* AddComentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddComentViewController.m; sourceTree = "<group>"; };
 		8CB875AD1AEF8777000B94D0 /* AdaugaProduseTipButoaneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdaugaProduseTipButoaneView.h; sourceTree = "<group>"; };
 		8CB875AE1AEF8777000B94D0 /* AdaugaProduseTipButoaneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdaugaProduseTipButoaneView.m; sourceTree = "<group>"; };
+		8CDC384B1AEFC0CB009336FD /* AdaugatCategorieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdaugatCategorieViewController.h; sourceTree = "<group>"; };
+		8CDC384C1AEFC0CB009336FD /* AdaugatCategorieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdaugatCategorieViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +244,7 @@
 				8C835F601AB89761003E5A7C /* AdaugViewController.m */,
 				8CB875AD1AEF8777000B94D0 /* AdaugaProduseTipButoaneView.h */,
 				8CB875AE1AEF8777000B94D0 /* AdaugaProduseTipButoaneView.m */,
+				8CDC384A1AEFC083009336FD /* selectieCategorieAdaugat */,
 			);
 			name = TabBar;
 			sourceTree = "<group>";
@@ -309,6 +313,15 @@
 				8CB875AB1AEF7D1E000B94D0 /* AddComentViewController.m */,
 			);
 			name = AddComent;
+			sourceTree = "<group>";
+		};
+		8CDC384A1AEFC083009336FD /* selectieCategorieAdaugat */ = {
+			isa = PBXGroup;
+			children = (
+				8CDC384B1AEFC0CB009336FD /* AdaugatCategorieViewController.h */,
+				8CDC384C1AEFC0CB009336FD /* AdaugatCategorieViewController.m */,
+			);
+			name = selectieCategorieAdaugat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,6 +427,7 @@
 				8C8519191ACAF95500E33592 /* SubCategorii.m in Sources */,
 				8CB875AC1AEF7D1E000B94D0 /* AddComentViewController.m in Sources */,
 				8CB875AF1AEF8777000B94D0 /* AdaugaProduseTipButoaneView.m in Sources */,
+				8CDC384D1AEFC0CB009336FD /* AdaugatCategorieViewController.m in Sources */,
 				8C835F5E1AB8951B003E5A7C /* AnuntViewController.m in Sources */,
 				8C835F611AB89761003E5A7C /* AdaugViewController.m in Sources */,
 				8C4BF8A21AB9EBAE009C189F /* AfisareCategorieTableViewController.m in Sources */,
