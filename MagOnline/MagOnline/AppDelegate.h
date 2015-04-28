@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "AnuntViewController.h"
-#import "AdaugViewController.h"
+#import "AdaugaProduseTipButoaneView.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 //variables global
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) AnuntViewController *anuntViewController;
-@property (strong, nonatomic) AdaugViewController *adaugViewController;
+@property (strong, nonatomic) AdaugaProduseTipButoaneView *adaugViewController;
 
 
 //variables local

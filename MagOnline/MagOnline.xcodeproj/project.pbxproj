@@ -36,6 +36,7 @@
 		8C9CBE361AD52F55008F288B /* CumparaPrloduViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9CBE351AD52F55008F288B /* CumparaPrloduViewController.m */; };
 		8CB875A81AEF7595000B94D0 /* ContinutComentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB875A71AEF7595000B94D0 /* ContinutComentViewController.m */; };
 		8CB875AC1AEF7D1E000B94D0 /* AddComentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB875AB1AEF7D1E000B94D0 /* AddComentViewController.m */; };
+		8CB875AF1AEF8777000B94D0 /* AdaugaProduseTipButoaneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB875AE1AEF8777000B94D0 /* AdaugaProduseTipButoaneView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,8 @@
 		8CB875A71AEF7595000B94D0 /* ContinutComentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContinutComentViewController.m; sourceTree = "<group>"; };
 		8CB875AA1AEF7D1E000B94D0 /* AddComentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddComentViewController.h; sourceTree = "<group>"; };
 		8CB875AB1AEF7D1E000B94D0 /* AddComentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddComentViewController.m; sourceTree = "<group>"; };
+		8CB875AD1AEF8777000B94D0 /* AdaugaProduseTipButoaneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdaugaProduseTipButoaneView.h; sourceTree = "<group>"; };
+		8CB875AE1AEF8777000B94D0 /* AdaugaProduseTipButoaneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdaugaProduseTipButoaneView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +239,8 @@
 				8C4BF89F1AB9EB3A009C189F /* AfisareCategorii */,
 				8C835F5F1AB89761003E5A7C /* AdaugViewController.h */,
 				8C835F601AB89761003E5A7C /* AdaugViewController.m */,
+				8CB875AD1AEF8777000B94D0 /* AdaugaProduseTipButoaneView.h */,
+				8CB875AE1AEF8777000B94D0 /* AdaugaProduseTipButoaneView.m */,
 			);
 			name = TabBar;
 			sourceTree = "<group>";
@@ -408,6 +413,7 @@
 				8C9CBE361AD52F55008F288B /* CumparaPrloduViewController.m in Sources */,
 				8C8519191ACAF95500E33592 /* SubCategorii.m in Sources */,
 				8CB875AC1AEF7D1E000B94D0 /* AddComentViewController.m in Sources */,
+				8CB875AF1AEF8777000B94D0 /* AdaugaProduseTipButoaneView.m in Sources */,
 				8C835F5E1AB8951B003E5A7C /* AnuntViewController.m in Sources */,
 				8C835F611AB89761003E5A7C /* AdaugViewController.m in Sources */,
 				8C4BF8A21AB9EBAE009C189F /* AfisareCategorieTableViewController.m in Sources */,

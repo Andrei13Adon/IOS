@@ -55,7 +55,7 @@
     _anuntViewController = [[AnuntViewController alloc] init];
     _anuntViewController.title = @"Anunturi";
     //2
-    _adaugViewController = [[AdaugViewController alloc] init];
+    _adaugViewController = [[AdaugaProduseTipButoaneView alloc] init];
     _adaugViewController.title = @"Adaugari";
     
     //aici redeclari cintrorele dar de tip nacigationBar
