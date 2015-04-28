@@ -16,6 +16,8 @@
 
 @property (strong , nonatomic)UILabel *Descriere,*Pret,*titluProdus,*NumeVanzator,*Telefon,*Mail,*Adresa;
 
+@property (strong , nonatomic)UIImageView *imageView;
+
 @end
 
 @implementation ProdusViewController
@@ -37,6 +39,8 @@
                 {
                     NSMutableString *temp;
                     _titluProdus.text = Titlu;
+                    
+                    
                     
                     temp =[[NSMutableString alloc]initWithString:@"Pret:"];
                     [temp appendString:_transfObjects[@"Pret"]];
@@ -98,13 +102,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
-    _titluProdus = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width/2, 20)];
-    _Pret = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2, 0, self.view.frame.size.width/2, 20)];
-    _NumeVanzator = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, 20)];
-    _Telefon = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, self.view.frame.size.width, 20)];
-    _Mail = [[UILabel alloc] initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, 20)];
-    _Adresa = [[UILabel alloc] initWithFrame:CGRectMake(0, 80, self.view.frame.size.width, 20)];
-    _Descriere = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, self.view.frame.size.height- 20 - 44 - 49 -50 - 50 - 100)];
+    //imagine de afisat
+    _imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"placeholder.jpg"]];
+    _imageView.frame  = CGRectMake(0, 0, self.view.frame.size.width - 200, self.view.frame.size.width -200);
+    
+    _titluProdus = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 200, 0, 200, 20)];
+    _Pret = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 200, 20, 200, 20)];
+    
+    _Descriere = [[UILabel alloc] initWithFrame:CGRectMake(0, 200, self.view.frame.size.width, self.view.frame.size.height- 20 - 44 - 49 -50 - 50 - 200 - 100)];
+    
+    CGFloat plecare = self.view.frame.size.height- 20 - 44 - 49 - 200;
+    _NumeVanzator = [[UILabel alloc] initWithFrame:CGRectMake(0, plecare, self.view.frame.size.width, 20)];
+    _Telefon = [[UILabel alloc] initWithFrame:CGRectMake(0, plecare +20, self.view.frame.size.width, 20)];
+    _Mail = [[UILabel alloc] initWithFrame:CGRectMake(0, plecare+40, self.view.frame.size.width, 20)];
+    _Adresa = [[UILabel alloc] initWithFrame:CGRectMake(0, plecare+60, self.view.frame.size.width, 40)];
+    
     if(_transfObjects)
     {
         
@@ -127,6 +139,7 @@
     [self.view addSubview:_Telefon];
     [self.view addSubview:_Mail];
     [self.view addSubview:_Adresa];
+    [self.view addSubview:_imageView];
     
     
     UIButton *burSeeComents = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50-50, self.view.frame.size.width, 50)];
