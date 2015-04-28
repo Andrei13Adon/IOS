@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ProdusViewController.h"
+#import "ContinutComentViewController.h"
 
 @interface ComentsViewController : UIViewController
 

@@ -108,13 +108,13 @@
 {
     
     //   NSLog(@"Am selectat celula de la indexpath %ld %@", (long)indexPath.row, [_transfObjects[indexPath.row] objectForKey:@"Titlu"]);
-    AfisareProduseViewController *lista;
+    ComentsViewController *lista;
     /*
      //gasirea id-ului din parse la obiectul pe care apesi
      NSString *objectId = [[_transfObjects objectAtIndex:indexPath.row] objectId];
      NSLog(@"%@", objectId);
      */
-  //  lista = [[ProdusViewController alloc] initWithTitle:[_transfObjects[indexPath.row] objectForKey:@"Titlu"] andIdObject:[[_transfObjects objectAtIndex:indexPath.row] objectId]];
+    lista = [[ContinutComentViewController alloc] initWithTitle:self.title andIdObject:[[_transfObjects objectAtIndex:indexPath.row] objectId]];
     [self.navigationController pushViewController:lista animated:YES];
     
 }
