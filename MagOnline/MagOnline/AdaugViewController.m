@@ -15,9 +15,9 @@
 
 @property (nonatomic , strong)NSString *idCategorieObiectCurent;
 
-@property (strong , nonatomic)UILabel *lNume,*lPrenume,*lAdresa,*lMail,*lTelefon,*lDescriere,*lTitlu;
+@property (strong , nonatomic)UILabel *lNume,*lPrenume,*lAdresa,*lMail,*lTelefon,*lDescriere,*lTitlu,*lPret;
 
-@property (nonatomic, strong)UITextField *tfNume,*tfPrenume,*tfAdresa,*tfMail,*tfTelefon,*tfDescriere,*tfTitlu;
+@property (nonatomic, strong)UITextField *tfNume,*tfPrenume,*tfAdresa,*tfMail,*tfTelefon,*tfDescriere,*tfTitlu,*tfPret;
 
 @end
 
@@ -115,6 +115,16 @@
     [self.view addSubview:_tfDescriere];
     _tfDescriere.delegate =self;
     
+    _lPret = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 15, textW, 20)];
+    _lPret.textColor = [UIColor whiteColor];
+    _lPret.text = @"Introduceti pret produs:";
+    [self.view addSubview:_lPret];
+    
+    _tfPret = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 16, textW, 20)];
+    _tfPret.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_tfPret];
+    _tfPret.delegate =self;
+    
     UIButton *ConfirmaCumparareaBut = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50, self.view.frame.size.width, 50)];
     ConfirmaCumparareaBut.backgroundColor = [UIColor blueColor];
     [ConfirmaCumparareaBut setTitle:@"Adauga produs nou"forState:UIControlStateNormal];
@@ -141,6 +151,8 @@
     newRow[@"CategoriiID"] = _idCategorieObiectCurent;
     newRow[@"Disponibil"] = @YES;
     newRow[@"Descriere"] = _tfDescriere.text;
+    if(_tfPret.text == @"") newRow[@"Pret"] = @"0";
+    else newRow[@"Pret"] = _tfPret.text;
     [newRow saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             [self.navigationController pushViewController:[[ConfirmareProdusNouViewController alloc]initWithTitle:_tfTitlu.text andIdObject:@"ceva"  andMessageRezult:  @"Produsul a fost adugat cu succes"] animated:YES];

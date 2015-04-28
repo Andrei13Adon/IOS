@@ -95,7 +95,11 @@
     
     if(_transfObjects.count > 0)
     {
-        cell.textLabel.text = [_transfObjects[indexPath.row] objectForKey:@"Titlu"];
+        NSMutableString *temp = [NSMutableString stringWithString:[_transfObjects[indexPath.row] objectForKey:@"Titlu"]];
+        [temp appendString:@" Pret:"];
+        [temp appendString:[_transfObjects[indexPath.row] objectForKey:@"Pret"]];
+        self.title = temp;
+        cell.textLabel.text = temp;
         //cell.backgroundColor = [UIColor redColor];
     }
     
