@@ -14,7 +14,7 @@
 
 @property (nonatomic , strong)NSString *idObiectCurent;
 
-@property (strong , nonatomic)UILabel *Descriere;
+@property (strong , nonatomic)UILabel *Descriere,*Pret,*titluProdus,*NumeVanzator,*Telefon,*Mail,*Adresa;
 
 @end
 
@@ -35,9 +35,44 @@
                 _transfObjects = someTxt;
                 if(_Descriere)
                 {
+                    NSMutableString *temp;
+                    _titluProdus.text = Titlu;
+                    
+                    temp =[[NSMutableString alloc]initWithString:@"Pret:"];
+                    [temp appendString:_transfObjects[@"Pret"]];
+                    _Pret.text = temp;
+                    
                     _Descriere.text = _transfObjects[@"Descriere"];
                     _Descriere.numberOfLines = 0;
                     [_Descriere sizeToFit];
+                    
+                    temp =[[NSMutableString alloc]initWithString:@"Nume Vanzator:"];
+                    [temp appendString:_transfObjects[@"NumeCreator"]];
+                    [temp appendString:@" "];
+                    [temp appendString:_transfObjects[@"PrenumeCreator"]];
+                    _NumeVanzator.text = temp;
+                    
+                    temp =[[NSMutableString alloc]initWithString:@"Telefon Vanzator:"];
+                    [temp appendString:_transfObjects[@"NumarTelefonCreator"]];
+                    _Telefon.text = temp;
+                    
+                    temp =[[NSMutableString alloc]initWithString:@"MailCreator Vanzator:"];
+                    [temp appendString:_transfObjects[@"NumeCreator"]];
+                    _Mail.text = temp;
+                    
+                    temp =[[NSMutableString alloc]initWithString:@"Adresa Vanzator:"];
+                    [temp appendString:_transfObjects[@"AdresaCreator"]];
+                    _Adresa.text = temp;
+                    _Adresa.numberOfLines = 0;
+                    [_Adresa sizeToFit];
+                    
+                    temp =[[NSMutableString alloc]initWithString:@"Descriere:\n"];
+                    [temp appendString:_transfObjects[@"Descriere"] ];
+                    
+                    _Descriere.text = temp;
+                    _Descriere.numberOfLines = 0;
+                    [_Descriere sizeToFit];
+                    
                 }
                 //????
                 //   _transfObjects = [NSMutableArray arrayWithArray:objects];
@@ -63,19 +98,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
-    _Descriere = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height- 20 - 44 - 49 -50 - 50)];
+    _titluProdus = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width/2, 20)];
+    _Pret = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2, 0, self.view.frame.size.width/2, 20)];
+    _NumeVanzator = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, 20)];
+    _Telefon = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, self.view.frame.size.width, 20)];
+    _Mail = [[UILabel alloc] initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, 20)];
+    _Adresa = [[UILabel alloc] initWithFrame:CGRectMake(0, 80, self.view.frame.size.width, 20)];
+    _Descriere = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, self.view.frame.size.height- 20 - 44 - 49 -50 - 50 - 100)];
     if(_transfObjects)
     {
-        _Descriere.text = _transfObjects[@"Descriere"];
-        _Descriere.numberOfLines = 0;
-        [_Descriere sizeToFit];
+        
     }
     else
     {
         _Descriere.text =  @"!test text!";
     }
+    _titluProdus.textColor = [UIColor whiteColor];
+    _NumeVanzator.textColor = [UIColor whiteColor];
+    _Telefon.textColor = [UIColor whiteColor];
+    _Mail.textColor = [UIColor whiteColor];
+    _Adresa.textColor = [UIColor whiteColor];
     _Descriere.textColor = [UIColor whiteColor];
+    _Pret.textColor = [UIColor whiteColor];
+    [self.view addSubview:_titluProdus];
     [self.view addSubview:_Descriere];
+    [self.view addSubview:_Pret];
+    [self.view addSubview:_NumeVanzator];
+    [self.view addSubview:_Telefon];
+    [self.view addSubview:_Mail];
+    [self.view addSubview:_Adresa];
+    
     
     UIButton *burSeeComents = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50-50, self.view.frame.size.width, 50)];
     burSeeComents.backgroundColor = [UIColor greenColor];
@@ -88,7 +140,6 @@
     [CumparaProdusBut setTitle:@"Cumpara Produs"forState:UIControlStateNormal];
      [self.view addSubview: CumparaProdusBut];
      [CumparaProdusBut addTarget:self action:@selector(click) forControlEvents: UIControlEventTouchUpInside];
-    
 }
 
 - (void)click {
