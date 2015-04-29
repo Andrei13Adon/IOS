@@ -129,8 +129,8 @@
             newRow[@"Nume"] = _tfNume.text;
             newRow[@"Prenume"] = _tfPrenume.text;
             newRow[@"numarTelefon"] = _tfTelefon.text;
-            newRow[@"Adresa"] = _tfMail.text;
-            newRow[@"Mail"] = _tfAdresa.text;
+            newRow[@"Mail"] = _tfMail.text;
+            newRow[@"Adresa"] = _tfAdresa.text;
             [newRow saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (succeeded) {
                     [self.navigationController pushViewController:[[LogIn alloc] init] animated:YES];

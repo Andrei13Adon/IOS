@@ -8,6 +8,7 @@
 
 #import "AddComentViewController.h"
 #import <Parse/Parse.h>
+#import "SubCategorii.h"
 
 @interface AddComentViewController ()<UITextFieldDelegate>
 
@@ -18,6 +19,8 @@
 @property (strong , nonatomic)UILabel *lNume,*lComentariu;
 
 @property (nonatomic, strong)UITextField *tfNume,*tfComentariu;
+
+@property (strong,nonatomic) SubCategorii *userState;
 
 
 @end
@@ -35,6 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _userState = [SubCategorii sharedSingleton];
     self.view.backgroundColor = [UIColor blackColor];
     CGFloat TextH = self.view.frame.size.height - 20 - 44 - 49;
     CGFloat textW = self.view.frame.size.width;
@@ -49,6 +53,8 @@
     _tfNume.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tfNume];
     _tfNume.delegate =self;
+    if(_userState.Satre == YES)
+        _tfNume.text = _userState.userName;
     
     _lComentariu = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 3, textW, 20)];
     _lComentariu.textColor = [UIColor whiteColor];
