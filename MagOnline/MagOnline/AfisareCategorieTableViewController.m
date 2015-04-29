@@ -8,7 +8,7 @@
 
 #import "AfisareCategorieTableViewController.h"
 #import <Parse/Parse.h>
-
+#import "SubCategorii.h"
 @interface AfisareCategorieTableViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong , nonatomic)UITableView *mainTableView;
@@ -25,6 +25,10 @@
 
 - (instancetype) initWithTitle:(NSString *)Titlu andidCategorie:(NSInteger) IdCategorie{
     self = [super init];
+    /*** test cu sucees
+    SubCategorii *asd=[SubCategorii sharedSingleton]; //;=[[SubCategorii alloc] init];
+    NSLog(@"%@",asd.numeSubcategorie);
+     */
     if(self){
         self.title = Titlu;
         _idCategorie = IdCategorie;

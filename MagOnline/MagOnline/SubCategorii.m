@@ -19,4 +19,18 @@
     return self;
 }
 
++ (SubCategorii *)sharedSingleton
+{
+    static SubCategorii *sharedSingleton;
+    
+    @synchronized(self)
+    {
+        if (!sharedSingleton)
+            sharedSingleton = [[SubCategorii alloc] init];
+        
+        return sharedSingleton;
+    }
+}
+
+
 @end

@@ -15,4 +15,6 @@
 
 -(id) initWitNumeCatehorie:(NSString *)str andVithId: (NSInteger) idObj;
 
++ (SubCategorii *)sharedSingleton;
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "AnuntViewController.h"
+#import "SubCategorii.h"
 
 @interface AnuntViewController ()
 
@@ -16,6 +17,7 @@
 @property (strong,nonatomic) UIButton *but4;
 @property (strong,nonatomic) UIButton *but5;
 @property (strong,nonatomic) UIButton *but6;
+//@property (strong,nonatomic) [SubCategorii sharedSingleton].variable
 
 @end
 
@@ -23,6 +25,11 @@
 
 - (void)viewDidLoad {
    self.view.backgroundColor=[UIColor whiteColor];
+    /*** test cu sucees
+    SubCategorii *asd =[SubCategorii sharedSingleton];
+    asd.numeSubcategorie = @"test";
+    NSLog(@"%@",asd.numeSubcategorie);
+    */
     
     CGFloat butH = (self.view.frame.size.height - 20 - 44 - 49  - 120) / 3 ;
     CGFloat butW = (self.view.frame.size.width - 90) / 2;
