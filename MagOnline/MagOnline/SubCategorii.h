@@ -10,10 +10,10 @@
 
 @interface SubCategorii : NSObject
 
-@property (nonatomic , assign) NSString *numeSubcategorie;
+@property (nonatomic , strong) NSString *userId,*userName,*nume,*prenume,*numarTelefon,*adresa,*mail;
 @property (nonatomic , assign) NSInteger idSubcategorie;
+@property (nonatomic , assign) BOOL Satre;
 
--(id) initWitNumeCatehorie:(NSString *)str andVithId: (NSInteger) idObj;
 
 + (SubCategorii *)sharedSingleton;
 

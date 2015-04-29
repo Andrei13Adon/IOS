@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "SubCategorii.h"
 
 @interface AppDelegate ()
 
@@ -29,6 +30,8 @@
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     //************?????????????**************
+    
+    [SubCategorii sharedSingleton]; // init and aloc global 
     
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     

@@ -9,7 +9,7 @@
 #import "SubCategorii.h"
 
 @implementation SubCategorii
-
+/*
 -(id) initWitNumeCatehorie:(NSString *)str andVithId: (NSInteger) idObj{
     self = [super init];
     if (self) {
@@ -17,7 +17,7 @@
         _idSubcategorie = idObj;
     }
     return self;
-}
+}*/
 
 + (SubCategorii *)sharedSingleton
 {
@@ -25,8 +25,10 @@
     
     @synchronized(self)
     {
-        if (!sharedSingleton)
+        if (!sharedSingleton){
             sharedSingleton = [[SubCategorii alloc] init];
+            sharedSingleton.Satre = NO;
+        }
         
         return sharedSingleton;
     }
