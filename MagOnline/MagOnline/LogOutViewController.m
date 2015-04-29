@@ -7,17 +7,32 @@
 //
 
 #import "LogOutViewController.h"
+#import "SubCategorii.h"
+#import "LogIn.h"
 
 @interface LogOutViewController ()
+
+@property(strong,nonatomic)SubCategorii *userState;
+@property(strong, nonatomic)UIButton *bLogOut;
 
 @end
 
 @implementation LogOutViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-   // [self
+    self.title = @"Log Out";
+    _userState = [SubCategorii sharedSingleton];
+    if(_userState.Satre == NO) [self.navigationController pushViewController:[[LogIn alloc]init] animated:YES];
+    else{
+        _bLogOut = [[UIButton alloc] initWithFrame: CGRectMake(50, self.view.frame.size.height/2 - 50, self.view.frame.size.width-100, 50)];
+        _bLogOut.backgroundColor = [UIColor blueColor];
+        [_bLogOut setTitle:@"Log In "forState:UIControlStateNormal];
+        [self.view addSubview: _bLogOut];
+        [_bLogOut addTarget:self action:@selector(click) forControlEvents: UIControlEventTouchUpInside];
+        //_userState.Satre = NO;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,14 +40,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)click {
+    if(_userState.Satre == NO) [self.navigationController pushViewController:[[LogIn alloc]init] animated:YES];
+    else{
+        _userState.Satre = NO;
+        [self.navigationController pushViewController:[[LogIn alloc]init] animated:YES]; //va trebui modifacat
+    }
 }
-*/
 
 @end
