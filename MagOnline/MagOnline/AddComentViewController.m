@@ -41,32 +41,32 @@
     _userState = [SubCategorii sharedSingleton];
     self.view.backgroundColor = [UIColor grayColor];
     CGFloat TextH = self.view.frame.size.height - 20 - 44 - 49;
-    CGFloat textW = self.view.frame.size.width;
+    CGFloat textW = self.view.frame.size.width - 40;
     ///??????
     int startingPoint = 0;
-    _lNume = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint, textW, 20)];
+    _lNume = [[UILabel alloc] initWithFrame:CGRectMake(20, startingPoint, textW, 20)];
     _lNume.textColor = [UIColor whiteColor];
     _lNume.text = @"Introduceti numele:";
     [self.view addSubview:_lNume];
     
-    _tfNume = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20, textW, 20)];
+    _tfNume = [[UITextField alloc] initWithFrame:CGRectMake(20, startingPoint+20, textW, 20)];
     _tfNume.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tfNume];
     _tfNume.delegate =self;
     if(_userState.Satre == YES)
         _tfNume.text = _userState.userName;
     
-    _lComentariu = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 3, textW, 20)];
+    _lComentariu = [[UILabel alloc] initWithFrame:CGRectMake(20, startingPoint + 20 * 3, textW, 20)];
     _lComentariu.textColor = [UIColor whiteColor];
     _lComentariu.text = @"Introduceti Cometariul:";
     [self.view addSubview:_lComentariu];
     
-    _tfComentariu = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 4, textW, 40)];
+    _tfComentariu = [[UITextField alloc] initWithFrame:CGRectMake(20, startingPoint+20 * 4, textW, 40)];
     _tfComentariu.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tfComentariu];
     _tfComentariu.delegate =self;
     
-    UIButton *ConfirmaCumparareaBut = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50, self.view.frame.size.width, 50)];
+    UIButton *ConfirmaCumparareaBut = [[UIButton alloc] initWithFrame: CGRectMake(50, self.view.frame.size.height- 20 - 44 - 49 -50 - 50, self.view.frame.size.width -100, 50)];
     ConfirmaCumparareaBut.backgroundColor = [UIColor blueColor];
     [ConfirmaCumparareaBut setTitle:@"Adauga Comentariul"forState:UIControlStateNormal];
     [self.view addSubview: ConfirmaCumparareaBut];
@@ -85,7 +85,8 @@
 - (void)click {
     PFObject *confirmare = [PFObject objectWithClassName:@"Coments"];
     confirmare[@"Autor"] = _tfNume.text;
-    confirmare[@"Comentariu"] = _tfComentariu.text;
+    if( [_tfComentariu.text  isEqual: @""]) confirmare[@"Comentariu"] = @"<Fara comentariu>";
+    else confirmare[@"Comentariu"] = _tfComentariu.text;
     confirmare[@"IdProdusTata"] = _idObiectCurent;
     [confirmare saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {

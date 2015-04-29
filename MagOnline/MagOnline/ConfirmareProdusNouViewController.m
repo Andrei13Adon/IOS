@@ -40,7 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor grayColor];
-    _jMesaj = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height- 20 - 44 - 49 -50)];
+    _jMesaj = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, self.view.frame.size.width-40, self.view.frame.size.height- 20 - 44 - 49 -50 -50)];
     _jMesaj.textColor = [UIColor whiteColor];
     [self.view addSubview:_jMesaj];
     _jMesaj.text =_tempMesaj;
@@ -48,7 +48,7 @@
     [_jMesaj sizeToFit];
     
     
-    UIButton *CumparaProdusBut = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50, self.view.frame.size.width, 50)];
+    UIButton *CumparaProdusBut = [[UIButton alloc] initWithFrame: CGRectMake(50, self.view.frame.size.height- 20 - 44 - 49 -50 - 50, self.view.frame.size.width - 100, 50)];
     CumparaProdusBut.backgroundColor = [UIColor blueColor];
     [CumparaProdusBut setTitle:@"Intoarcere in Adauga"forState:UIControlStateNormal];
     [self.view addSubview: CumparaProdusBut];

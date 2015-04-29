@@ -25,81 +25,81 @@
     self.title = @"Sing Up";
     self.view.backgroundColor = [UIColor grayColor];
     //  CGFloat TextH = self.view.frame.size.height - 20 - 44 - 49  -50 ;
-    CGFloat textW = self.view.frame.size.width;
+    CGFloat textW = self.view.frame.size.width - 40;
     ///??????
     int startingPoint = 0;
     
-    _lnumeUtilizator = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint, textW, 20)];
+    _lnumeUtilizator = [[UILabel alloc] initWithFrame:CGRectMake(20, startingPoint, textW, 20)];
     _lnumeUtilizator.textColor = [UIColor whiteColor];
     _lnumeUtilizator.text = @"Introduceti numele de utilizator:";
     [self.view addSubview:_lnumeUtilizator];
     
-    _tfnumeUtilizator = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20, textW, 20)];
+    _tfnumeUtilizator = [[UITextField alloc] initWithFrame:CGRectMake(20, startingPoint+20, textW, 20)];
     _tfnumeUtilizator.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tfnumeUtilizator];
     _tfnumeUtilizator.delegate =self;
     
-    _lNume = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 2, textW, 20)];
+    _lNume = [[UILabel alloc] initWithFrame:CGRectMake(20, startingPoint+20 * 2, textW, 20)];
     _lNume.textColor = [UIColor whiteColor];
     _lNume.text = @"Introduceti numele:";
     [self.view addSubview:_lNume];
     
-    _tfNume = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 3, textW, 20)];
+    _tfNume = [[UITextField alloc] initWithFrame:CGRectMake(20, startingPoint+20 * 3, textW, 20)];
     _tfNume.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tfNume];
     _tfNume.delegate =self;
     
-    _lPrenume = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 4, textW, 20)];
+    _lPrenume = [[UILabel alloc] initWithFrame:CGRectMake(20, startingPoint + 20 * 4, textW, 20)];
     _lPrenume.textColor = [UIColor whiteColor];
     _lPrenume.text = @"Introduceti prenume:";
     [self.view addSubview:_lPrenume];
     
-    _tfPrenume = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 5, textW, 20)];
+    _tfPrenume = [[UITextField alloc] initWithFrame:CGRectMake(20, startingPoint+20 * 5, textW, 20)];
     _tfPrenume.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tfPrenume];
     _tfPrenume.delegate =self;
     
-    _lTelefon = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 6, textW, 20)];
+    _lTelefon = [[UILabel alloc] initWithFrame:CGRectMake(20, startingPoint + 20 * 6, textW, 20)];
     _lTelefon.textColor = [UIColor whiteColor];
     _lTelefon.text = @"Introduceti telefonul:";
     [self.view addSubview:_lTelefon];
     
-    _tfTelefon = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 7, textW, 20)];
+    _tfTelefon = [[UITextField alloc] initWithFrame:CGRectMake(20, startingPoint+20 * 7, textW, 20)];
     _tfTelefon.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tfTelefon];
     _tfTelefon.delegate =self;
     
-    _lMail = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 8, textW, 20)];
+    _lMail = [[UILabel alloc] initWithFrame:CGRectMake(20, startingPoint + 20 * 8, textW, 20)];
     _lMail.textColor = [UIColor whiteColor];
     _lMail.text = @"Introduceti mailul:";
     [self.view addSubview:_lMail];
     
-    _tfMail = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 9, textW, 20)];
+    _tfMail = [[UITextField alloc] initWithFrame:CGRectMake(20, startingPoint+20 * 9, textW, 20)];
     _tfMail.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tfMail];
     _tfMail.delegate =self;
     
-    _lAdresa = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 10, textW, 20)];
+    _lAdresa = [[UILabel alloc] initWithFrame:CGRectMake(20, startingPoint + 20 * 10, textW, 20)];
     _lAdresa.textColor = [UIColor whiteColor];
     _lAdresa.text = @"Introduceti adresa:";
     [self.view addSubview:_lAdresa];
     
-    _tfAdresa = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 11, textW, 20)];
+    _tfAdresa = [[UITextField alloc] initWithFrame:CGRectMake(20, startingPoint+20 * 11, textW, 20)];
     _tfAdresa.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tfAdresa];
     _tfAdresa.delegate =self;
     
-    _lPassword = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 13, textW, 20)];
+    _lPassword = [[UILabel alloc] initWithFrame:CGRectMake(20, startingPoint + 20 * 13, textW, 20)];
     _lPassword.textColor = [UIColor whiteColor];
     _lPassword.text = @"Introduceti Parola:";
     [self.view addSubview:_lPassword];
     
-    _tfPassword = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 14, textW, 20)];
+    _tfPassword = [[UITextField alloc] initWithFrame:CGRectMake(20, startingPoint+20 * 14, textW, 20)];
     _tfPassword.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tfPassword];
     _tfPassword.delegate =self;
     
-    UIButton *ConfirmaCumparareaBut = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50, self.view.frame.size.width, 50)];
+    UIButton *ConfirmaCumparareaBut = [[UIButton alloc] initWithFrame: CGRectMake(50, self.view.frame.size.height- 20 - 44 - 49 -50, self.view.frame.size.width - 100, 50)];
     ConfirmaCumparareaBut.backgroundColor = [UIColor blueColor];
     [ConfirmaCumparareaBut setTitle:@"Sing Up"forState:UIControlStateNormal];
     [self.view addSubview: ConfirmaCumparareaBut];

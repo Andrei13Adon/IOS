@@ -54,13 +54,13 @@
     [self.view addSubview:_tfPassword];
     _tfPassword.delegate =self;
     
-    _bLogIn = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50  - 150, self.view.frame.size.width, 50)];
+    _bLogIn = [[UIButton alloc] initWithFrame: CGRectMake(50, self.view.frame.size.height- 20 - 44 - 49 -50  - 150, self.view.frame.size.width - 100, 50)];
     _bLogIn.backgroundColor = [UIColor blueColor];
     [_bLogIn setTitle:@"Log In "forState:UIControlStateNormal];
     [self.view addSubview: _bLogIn];
     [_bLogIn addTarget:self action:@selector(click) forControlEvents: UIControlEventTouchUpInside];
     
-    _bSingIn = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50 - 50, self.view.frame.size.width, 50)];
+    _bSingIn = [[UIButton alloc] initWithFrame: CGRectMake(50, self.view.frame.size.height- 20 - 44 - 49 -50 - 50, self.view.frame.size.width - 100, 50)];
     _bSingIn.backgroundColor = [UIColor greenColor];
     [_bSingIn setTitle:@"Sing Up"forState:UIControlStateNormal];
     [self.view addSubview: _bSingIn];

@@ -138,13 +138,13 @@
     [self.view addSubview:_imageView];
     
     
-    UIButton *burSeeComents = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50-50, self.view.frame.size.width, 50)];
+    UIButton *burSeeComents = [[UIButton alloc] initWithFrame: CGRectMake(20, self.view.frame.size.height- 20 - 44 - 49 -50-50, self.view.frame.size.width - 40, 50)];
     burSeeComents.backgroundColor = [UIColor greenColor];
     [burSeeComents setTitle:@"Vizualizeaza Comentariile"forState:UIControlStateNormal];
     [self.view addSubview: burSeeComents];
     [burSeeComents addTarget:self action:@selector(click2) forControlEvents: UIControlEventTouchUpInside];
     
-    UIButton *CumparaProdusBut = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50, self.view.frame.size.width, 50)];
+    UIButton *CumparaProdusBut = [[UIButton alloc] initWithFrame: CGRectMake(20, self.view.frame.size.height- 20 - 44 - 49 -50, self.view.frame.size.width - 40, 50)];
     CumparaProdusBut.backgroundColor = [UIColor blueColor];
     [CumparaProdusBut setTitle:@"Cumpara Produs"forState:UIControlStateNormal];
      [self.view addSubview: CumparaProdusBut];
