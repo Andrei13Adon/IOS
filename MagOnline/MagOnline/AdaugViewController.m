@@ -43,7 +43,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _userState = [SubCategorii sharedSingleton];
-    self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = [UIColor grayColor];
     //  CGFloat TextH = self.view.frame.size.height - 20 - 44 - 49  -50 ;
     CGFloat textW = self.view.frame.size.width;
     ///??????
@@ -159,7 +159,8 @@
     newRow[@"NumarTelefonCreator"] = _tfTelefon.text;
     newRow[@"MailCreator"] = _tfMail.text;
     newRow[@"AdresaCreator"] = _tfAdresa.text;
-    newRow[@"Titlu"] = _tfTitlu.text;
+    if([_tfTitlu.text  isEqual: @""]) newRow[@"Titlu"] = @"Fara titlu";
+    else newRow[@"Titlu"] = _tfTitlu.text;
     newRow[@"CategoriiID"] = _idCategorieObiectCurent;
     newRow[@"Disponibil"] = @YES;
     newRow[@"Descriere"] = _tfDescriere.text;

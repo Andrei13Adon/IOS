@@ -32,6 +32,8 @@
     
     CGFloat textW = self.view.frame.size.width - 40;
     
+    self.view.backgroundColor = [UIColor grayColor];
+        
     _lUsername = [[UILabel alloc] initWithFrame:CGRectMake(20, startingPoint, textW, 20)];
     _lUsername.textColor = [UIColor whiteColor];
     _lUsername.text = @"Introduceti numele:";

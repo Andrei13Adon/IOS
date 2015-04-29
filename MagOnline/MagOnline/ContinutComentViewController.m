@@ -66,9 +66,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = [UIColor grayColor];
     _Autor = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
-    _Descriere = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height- 20 - 44 - 49 -20 )];
+    _Descriere = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width - 20, self.view.frame.size.height- 20 - 44 - 49 -20 )];
     if(_transfObjects)
     {
         _Autor.text = _transfObjects[@"Autor"];

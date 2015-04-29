@@ -20,7 +20,7 @@
 @implementation LogOutViewController
 
 - (void)viewDidLoad {
-    
+    self.view.backgroundColor = [UIColor grayColor];
     [super viewDidLoad];
     self.title = @"Log Out";
     _userState = [SubCategorii sharedSingleton];

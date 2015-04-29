@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Sing Up";
-    self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = [UIColor grayColor];
     //  CGFloat TextH = self.view.frame.size.height - 20 - 44 - 49  -50 ;
     CGFloat textW = self.view.frame.size.width;
     ///??????

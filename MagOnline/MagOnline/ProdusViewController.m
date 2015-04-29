@@ -46,10 +46,6 @@
                     [temp appendString:_transfObjects[@"Pret"]];
                     _Pret.text = temp;
                     
-                    _Descriere.text = _transfObjects[@"Descriere"];
-                    _Descriere.numberOfLines = 0;
-                    [_Descriere sizeToFit];
-                    
                     temp =[[NSMutableString alloc]initWithString:@"Nume Vanzator:"];
                     [temp appendString:_transfObjects[@"NumeCreator"]];
                     [temp appendString:@" "];
@@ -101,7 +97,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = [UIColor grayColor];
     //imagine de afisat
     _imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"placeholder.jpg"]];
     _imageView.frame  = CGRectMake(20, 0, self.view.frame.size.width - 200, self.view.frame.size.width -200);
