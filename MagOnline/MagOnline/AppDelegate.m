@@ -55,6 +55,9 @@
     _anuntViewController = [[AnuntViewController alloc] init];
     _anuntViewController.title = @"Anunturi";
     //2
+    _logInViewController = [[LogIn alloc] init];
+    _logInViewController.title = @"Log In";
+    //3
     _adaugViewController = [[AdaugaProduseTipButoaneView alloc] init];
     _adaugViewController.title = @"Adaugari";
     
@@ -62,9 +65,11 @@
     //1
     UINavigationController *anuntViewNavigation  = [[UINavigationController alloc] initWithRootViewController:_anuntViewController];
     //2
+    UINavigationController *logInViewNavigation  = [[UINavigationController alloc] initWithRootViewController: _logInViewController];
+    //3
     UINavigationController *adaugViewNavigation  = [[UINavigationController alloc] initWithRootViewController:_adaugViewController];
     
-    return @[anuntViewNavigation , adaugViewNavigation ];
+    return @[anuntViewNavigation , logInViewNavigation, adaugViewNavigation ];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

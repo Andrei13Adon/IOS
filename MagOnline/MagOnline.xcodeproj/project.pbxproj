@@ -10,6 +10,7 @@
 		8C292AC11ACC4B5A00A6258A /* AfisareProduseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C292AC01ACC4B5A00A6258A /* AfisareProduseViewController.m */; };
 		8C404CB01AD43703006BAB0D /* ProdusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C404CAF1AD43703006BAB0D /* ProdusViewController.m */; };
 		8C4BF8A21AB9EBAE009C189F /* AfisareCategorieTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4BF8A11AB9EBAE009C189F /* AfisareCategorieTableViewController.m */; };
+		8C6A9D081AF0C485005CC331 /* LogIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A9D071AF0C485005CC331 /* LogIn.m */; };
 		8C7155291AE7A685003E0884 /* ComentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7155281AE7A685003E0884 /* ComentsViewController.m */; };
 		8C835F381AB88C8C003E5A7C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C835F371AB88C8C003E5A7C /* main.m */; };
 		8C835F3B1AB88C8C003E5A7C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C835F3A1AB88C8C003E5A7C /* AppDelegate.m */; };
@@ -58,6 +59,8 @@
 		8C404CAF1AD43703006BAB0D /* ProdusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProdusViewController.m; sourceTree = "<group>"; };
 		8C4BF8A01AB9EBAE009C189F /* AfisareCategorieTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AfisareCategorieTableViewController.h; sourceTree = "<group>"; };
 		8C4BF8A11AB9EBAE009C189F /* AfisareCategorieTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AfisareCategorieTableViewController.m; sourceTree = "<group>"; };
+		8C6A9D061AF0C485005CC331 /* LogIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogIn.h; sourceTree = "<group>"; };
+		8C6A9D071AF0C485005CC331 /* LogIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogIn.m; sourceTree = "<group>"; };
 		8C7155271AE7A685003E0884 /* ComentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComentsViewController.h; sourceTree = "<group>"; };
 		8C7155281AE7A685003E0884 /* ComentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComentsViewController.m; sourceTree = "<group>"; };
 		8C835F321AB88C8C003E5A7C /* MagOnline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagOnline.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,6 +249,8 @@
 				8CB875AD1AEF8777000B94D0 /* AdaugaProduseTipButoaneView.h */,
 				8CB875AE1AEF8777000B94D0 /* AdaugaProduseTipButoaneView.m */,
 				8CDC384A1AEFC083009336FD /* selectieCategorieAdaugat */,
+				8C6A9D071AF0C485005CC331 /* LogIn.m */,
+				8C6A9D061AF0C485005CC331 /* LogIn.h */,
 			);
 			name = TabBar;
 			sourceTree = "<group>";
@@ -456,6 +461,7 @@
 				8C835F3B1AB88C8C003E5A7C /* AppDelegate.m in Sources */,
 				8C404CB01AD43703006BAB0D /* ProdusViewController.m in Sources */,
 				8C7155291AE7A685003E0884 /* ComentsViewController.m in Sources */,
+				8C6A9D081AF0C485005CC331 /* LogIn.m in Sources */,
 				8C958AD41AE6A8D60019D46A /* ConfirmareMesajViewController.m in Sources */,
 				8C292AC11ACC4B5A00A6258A /* AfisareProduseViewController.m in Sources */,
 				8CB875A81AEF7595000B94D0 /* ContinutComentViewController.m in Sources */,

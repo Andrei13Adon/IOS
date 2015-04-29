@@ -151,7 +151,7 @@
     newRow[@"CategoriiID"] = _idCategorieObiectCurent;
     newRow[@"Disponibil"] = @YES;
     newRow[@"Descriere"] = _tfDescriere.text;
-    if(_tfPret.text == @"") newRow[@"Pret"] = @"0";
+    if([_tfPret.text  isEqual: @""]) newRow[@"Pret"] = @"0";
     else newRow[@"Pret"] = _tfPret.text;
     [newRow saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
