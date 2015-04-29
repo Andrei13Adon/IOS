@@ -8,12 +8,13 @@
 
 #import "SingUpViewController.h"
 #import <Parse/Parse.h>
+#import "LogIn.h"
 
 @interface SingUpViewController ()<UITextFieldDelegate>
 
-@property (strong , nonatomic)UILabel *lnumeUtilizator,*lNume,*lPrenume,*lAdresa,*lMail,*lTelefon;
+@property (strong , nonatomic)UILabel *lnumeUtilizator,*lNume,*lPrenume,*lAdresa,*lMail,*lTelefon,*lPassword;
 
-@property (nonatomic, strong)UITextField *tfnumeUtilizator,*tfNume,*tfPrenume,*tfAdresa,*tfMail,*tfTelefon;
+@property (nonatomic, strong)UITextField *tfnumeUtilizator,*tfNume,*tfPrenume,*tfAdresa,*tfMail,*tfTelefon,*tfPassword;
 
 @end
 
@@ -88,6 +89,15 @@
     [self.view addSubview:_tfAdresa];
     _tfAdresa.delegate =self;
     
+    _lPassword = [[UILabel alloc] initWithFrame:CGRectMake(0, startingPoint + 20 * 13, textW, 20)];
+    _lPassword.textColor = [UIColor whiteColor];
+    _lPassword.text = @"Introduceti Parola:";
+    [self.view addSubview:_lPassword];
+    
+    _tfPassword = [[UITextField alloc] initWithFrame:CGRectMake(0, startingPoint+20 * 14, textW, 20)];
+    _tfPassword.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_tfPassword];
+    _tfPassword.delegate =self;
     
     UIButton *ConfirmaCumparareaBut = [[UIButton alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height- 20 - 44 - 49 -50, self.view.frame.size.width, 50)];
     ConfirmaCumparareaBut.backgroundColor = [UIColor blueColor];
@@ -108,7 +118,34 @@
 }
 
 - (void)click {
-  /*  PFObject *newRow = [PFObject objectWithClassName:@"Produse"];
+    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    [query whereKey:@"Username" equalTo:_tfnumeUtilizator.text];
+    //  _transfObjects = nil;
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error && objects.count == 0) {
+            PFObject *newRow = [PFObject objectWithClassName:@"User"];
+            newRow[@"Username"] = _tfnumeUtilizator.text;
+            newRow[@"Password"] = _tfPassword.text;
+            newRow[@"Nume"] = _tfNume.text;
+            newRow[@"Prenume"] = _tfPrenume.text;
+            newRow[@"numarTelefon"] = _tfTelefon.text;
+            newRow[@"Adresa"] = _tfMail.text;
+            newRow[@"Mail"] = _tfAdresa.text;
+            [newRow saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    [self.navigationController pushViewController:[[LogIn alloc] init] animated:YES];
+                } else {
+                    NSLog(@"Error: %@ %@", error, [error userInfo]);
+                }
+            }];
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
+    /****
+    PFObject *newRow = [PFObject objectWithClassName:@"User"];
     newRow[@"NumeCreator"] = _tfNume.text;
     newRow[@"PrenumeCreator"] = _tfPrenume.text;
     newRow[@"NumarTelefonCreator"] = _tfTelefon.text;
