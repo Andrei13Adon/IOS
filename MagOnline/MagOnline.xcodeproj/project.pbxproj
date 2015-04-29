@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C0047F11AF0DD4A00301382 /* SingUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0047F01AF0DD4A00301382 /* SingUpViewController.m */; };
 		8C292AC11ACC4B5A00A6258A /* AfisareProduseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C292AC01ACC4B5A00A6258A /* AfisareProduseViewController.m */; };
 		8C404CB01AD43703006BAB0D /* ProdusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C404CAF1AD43703006BAB0D /* ProdusViewController.m */; };
 		8C4BF8A21AB9EBAE009C189F /* AfisareCategorieTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4BF8A11AB9EBAE009C189F /* AfisareCategorieTableViewController.m */; };
@@ -54,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8C0047EF1AF0DD4A00301382 /* SingUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingUpViewController.h; sourceTree = "<group>"; };
+		8C0047F01AF0DD4A00301382 /* SingUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingUpViewController.m; sourceTree = "<group>"; };
 		8C292ABF1ACC4B5A00A6258A /* AfisareProduseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AfisareProduseViewController.h; sourceTree = "<group>"; };
 		8C292AC01ACC4B5A00A6258A /* AfisareProduseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AfisareProduseViewController.m; sourceTree = "<group>"; };
 		8C404CAE1AD43703006BAB0D /* ProdusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProdusViewController.h; sourceTree = "<group>"; };
@@ -178,6 +181,8 @@
 			children = (
 				8C6A9D0A1AF0D560005CC331 /* LogOutViewController.h */,
 				8C6A9D0B1AF0D560005CC331 /* LogOutViewController.m */,
+				8C0047EF1AF0DD4A00301382 /* SingUpViewController.h */,
+				8C0047F01AF0DD4A00301382 /* SingUpViewController.m */,
 			);
 			name = "Altele depre legaturi";
 			sourceTree = "<group>";
@@ -480,6 +485,7 @@
 				8C292AC11ACC4B5A00A6258A /* AfisareProduseViewController.m in Sources */,
 				8CB875A81AEF7595000B94D0 /* ContinutComentViewController.m in Sources */,
 				8C835F381AB88C8C003E5A7C /* main.m in Sources */,
+				8C0047F11AF0DD4A00301382 /* SingUpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

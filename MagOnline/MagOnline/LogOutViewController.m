@@ -28,7 +28,7 @@
     else{
         _bLogOut = [[UIButton alloc] initWithFrame: CGRectMake(50, self.view.frame.size.height/2 - 50, self.view.frame.size.width-100, 50)];
         _bLogOut.backgroundColor = [UIColor blueColor];
-        [_bLogOut setTitle:@"Log In "forState:UIControlStateNormal];
+        [_bLogOut setTitle:@"Log Out"forState:UIControlStateNormal];
         [self.view addSubview: _bLogOut];
         [_bLogOut addTarget:self action:@selector(click) forControlEvents: UIControlEventTouchUpInside];
         //_userState.Satre = NO;
