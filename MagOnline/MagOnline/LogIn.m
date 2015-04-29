@@ -116,7 +116,7 @@
 - (void)click2 {
     if(_userState.Satre == YES) [self.navigationController pushViewController:[[LogOutViewController alloc]init] animated:YES];
     else{
-        [self.navigationController pushViewController:[[SingUpViewController alloc]init] animated:YES]; //va trebui modifacat
+        [self.navigationController presentViewController:[[SingUpViewController alloc]init] animated:YES completion:nil];//pushViewController:[[SingUpViewController alloc]init] animated:YES]; //va trebui modifacat
     }
 }
 @end
